@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Route Plan List View -->
+    <record id="view_route_plan_list" model="ir.ui.view">
+        <field name="name">routy.route_plan.list</field>
+        <field name="model">routy.route_plan</field>
+        <field name="arch" type="xml">
+            <list string="Route Plans"
+                  decoration-info="state == 'active'"
+                  decoration-success="state == 'completed'">
+                <field name="name"/>
+                <field name="driver_id"/>
+                <field name="date"/>
+                <field name="job_count"/>
+                <field name="completed_jobs"/>
+                <field name="pending_jobs"/>
+                <field name="completion_rate" widget="progressbar"/>
+                <field name="is_optimized" widget="boolean_toggle"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Route Plan Form View -->
+    <record id="view_route_plan_form" model="ir.ui.view">
+        <field name="name">routy.route_plan.form</field>
+        <field name="model">routy.route_plan</field>
+        <field name="arch" type="xml">
+            <form string="Route Plan">
+                <header>
+                    <button name="action_activate" string="Activate" type="object"
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_optimize_route" string="Optimize Route" type="object"
+                            class="oe_highlight" invisible="state not in ('draft', 'active')"/>
+                    <button name="action_complete" string="Complete" type="object"
+                            invisible="state != 'active'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state == 'completed'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,active,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_jobs" type="object"
+                                class="oe_stat_button" icon="fa-tasks">
+                            <field name="job_count" widget="statinfo" string="Jobs"/>
+                        </button>
+                        <button name="action_view_map" type="object"
+                                class="oe_stat_button" icon="fa-map">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">View Map</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="driver_id"/>
+                            <field name="date"/>
+                            <field name="is_optimized"/>
+                        </group>
+                        <group>
+                            <field name="total_distance_km"/>
+                            <field name="estimated_duration" widget="float_time"/>
+                            <field name="optimization_score" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Jobs">
+                            <field name="job_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="job_type"/>
+                                    <field name="location_address"/>
+                                    <field name="scheduled_time"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Statistics">
+                            <group>
+                                <group>
+                                    <field name="job_count"/>
+                                    <field name="completed_jobs"/>
+                                    <field name="failed_jobs"/>
+                                    <field name="pending_jobs"/>
+                                </group>
+                                <group>
+                                    <field name="completion_rate" widget="progressbar"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes" placeholder="Route notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Route Plan Calendar View -->
+    <record id="view_route_plan_calendar" model="ir.ui.view">
+        <field name="name">routy.route_plan.calendar</field>
+        <field name="model">routy.route_plan</field>
+        <field name="arch" type="xml">
+            <calendar string="Route Plans" date_start="date" mode="month" color="driver_id">
+                <field name="name"/>
+                <field name="driver_id"/>
+                <field name="job_count"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Route Plan Search View -->
+    <record id="view_route_plan_search" model="ir.ui.view">
+        <field name="name">routy.route_plan.search</field>
+        <field name="model">routy.route_plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="driver_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Active" name="active" domain="[('state', '=', 'active')]"/>
+                <filter string="Completed" name="completed" domain="[('state', '=', 'completed')]"/>
+                <separator/>
+                <filter string="Optimized" name="optimized" domain="[('is_optimized', '=', True)]"/>
+                <filter string="Not Optimized" name="not_optimized" domain="[('is_optimized', '=', False)]"/>
+                <separator/>
+                <filter string="Today" name="today"
+                        domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Driver" name="group_driver" context="{'group_by': 'driver_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Route Plan Action -->
+    <record id="action_route_plan" model="ir.actions.act_window">
+        <field name="name">Route Plans</field>
+        <field name="res_model">routy.route_plan</field>
+        <field name="view_mode">calendar,list,form</field>
+        <field name="context">{'search_default_active': 1, 'search_default_today': 1}</field>
+    </record>
+
+</odoo>

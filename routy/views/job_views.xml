@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Job List View -->
+    <record id="view_job_list" model="ir.ui.view">
+        <field name="name">routy.job.list</field>
+        <field name="model">routy.job</field>
+        <field name="arch" type="xml">
+            <list string="Jobs"
+                  decoration-success="state == 'completed'"
+                  decoration-info="state in ('assigned', 'accepted')"
+                  decoration-warning="state == 'in_progress'"
+                  decoration-danger="state == 'failed'">
+                <field name="name"/>
+                <field name="job_type"/>
+                <field name="driver_id"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <field name="location_address"/>
+                <field name="scheduled_time"/>
+                <field name="route_plan_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'completed'"
+                       decoration-info="state in ('assigned', 'accepted')"
+                       decoration-warning="state == 'in_progress'"
+                       decoration-danger="state == 'failed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Job Form View -->
+    <record id="view_job_form" model="ir.ui.view">
+        <field name="name">routy.job.form</field>
+        <field name="model">routy.job</field>
+        <field name="arch" type="xml">
+            <form string="Job">
+                <header>
+                    <button name="action_accept" string="Accept" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'assigned'"/>
+                    <button name="action_start" string="Start Job" type="object"
+                            class="oe_highlight"
+                            invisible="state not in ('accepted', 'assigned')"/>
+                    <button name="action_complete" string="Complete" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'in_progress'"/>
+                    <button name="action_fail" string="Mark Failed" type="object"
+                            invisible="state not in ('in_progress', 'accepted')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="assigned,accepted,in_progress,completed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_gps_logs" type="object"
+                                class="oe_stat_button" icon="fa-map-marker">
+                            <field name="gps_log_count" widget="statinfo" string="GPS Logs"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        <h2>
+                            <field name="job_type" widget="badge"/>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="driver_id"/>
+                            <field name="service_request_id"/>
+                            <field name="customer_id"/>
+                            <field name="route_plan_id"/>
+                        </group>
+                        <group>
+                            <field name="scheduled_time"/>
+                            <field name="started_at"/>
+                            <field name="completed_at"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Location">
+                            <group>
+                                <group>
+                                    <field name="location_address"/>
+                                    <field name="contact_name"/>
+                                    <field name="contact_phone"/>
+                                </group>
+                                <group>
+                                    <field name="location_lat"/>
+                                    <field name="location_lng"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Parcels">
+                            <field name="parcel_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="weight"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes">
+                            <group>
+                                <field name="notes" placeholder="Job notes..." nolabel="1"/>
+                                <field name="failure_reason" placeholder="Failure reason..." nolabel="1"
+                                       invisible="state != 'failed'"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Job Kanban View -->
+    <record id="view_job_kanban" model="ir.ui.view">
+        <field name="name">routy.job.kanban</field>
+        <field name="model">routy.job</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="driver_id" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="job_type"/>
+                <field name="driver_id"/>
+                <field name="state"/>
+                <field name="scheduled_time"/>
+                <progressbar field="state" colors='{"completed": "success", "in_progress": "warning", "failed": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <span class="badge rounded-pill">
+                                        <field name="job_type"/>
+                                    </span>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <field name="service_request_id"/>
+                                    <div t-if="record.scheduled_time.raw_value">
+                                        <i class="fa fa-clock-o"/> <field name="scheduled_time"/>
+                                    </div>
+                                    <div>
+                                        <field name="location_address"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="state" widget="label"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Job Search View -->
+    <record id="view_job_search" model="ir.ui.view">
+        <field name="name">routy.job.search</field>
+        <field name="model">routy.job</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="driver_id"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <filter string="Assigned" name="assigned" domain="[('state', '=', 'assigned')]"/>
+                <filter string="Accepted" name="accepted" domain="[('state', '=', 'accepted')]"/>
+                <filter string="In Progress" name="in_progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter string="Completed" name="completed" domain="[('state', '=', 'completed')]"/>
+                <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                <separator/>
+                <filter string="Pickup" name="pickup" domain="[('job_type', '=', 'pickup')]"/>
+                <filter string="Delivery" name="delivery" domain="[('job_type', '=', 'delivery')]"/>
+                <separator/>
+                <filter string="Today" name="today"
+                        domain="[('scheduled_time', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Driver" name="group_driver" context="{'group_by': 'driver_id'}"/>
+                    <filter string="Job Type" name="group_job_type" context="{'group_by': 'job_type'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Route Plan" name="group_route_plan" context="{'group_by': 'route_plan_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Job Action -->
+    <record id="action_job" model="ir.actions.act_window">
+        <field name="name">Jobs</field>
+        <field name="res_model">routy.job</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_in_progress': 1, 'search_default_assigned': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No jobs yet!
+            </p>
+            <p>
+                Jobs are created when you assign drivers to service requests.
+            </p>
+        </field>
+    </record>
+
+</odoo>

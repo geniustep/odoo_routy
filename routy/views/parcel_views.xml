@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Parcel List View -->
+    <record id="view_parcel_list" model="ir.ui.view">
+        <field name="name">routy.parcel.list</field>
+        <field name="model">routy.parcel</field>
+        <field name="arch" type="xml">
+            <list string="Parcels"
+                  decoration-success="state == 'delivered'"
+                  decoration-info="state in ('picked', 'in_transit')"
+                  decoration-warning="state == 'out_for_delivery'"
+                  decoration-danger="state == 'failed'">
+                <field name="name"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <field name="description"/>
+                <field name="weight"/>
+                <field name="declared_value"/>
+                <field name="assigned_driver_id"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'delivered'"
+                       decoration-info="state in ('picked', 'in_transit')"
+                       decoration-warning="state == 'out_for_delivery'"
+                       decoration-danger="state == 'failed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Parcel Form View -->
+    <record id="view_parcel_form" model="ir.ui.view">
+        <field name="name">routy.parcel.form</field>
+        <field name="model">routy.parcel</field>
+        <field name="arch" type="xml">
+            <form string="Parcel">
+                <header>
+                    <button name="action_mark_picked" string="Mark Picked" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'pending'"/>
+                    <button name="action_mark_in_transit" string="In Transit" type="object"
+                            invisible="state not in ('picked', 'pending')"/>
+                    <button name="action_mark_out_for_delivery" string="Out for Delivery" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'in_transit'"/>
+                    <button name="action_mark_delivered" string="Mark Delivered" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'out_for_delivery'"/>
+                    <button name="action_mark_failed" string="Mark Failed" type="object"
+                            invisible="state not in ('out_for_delivery', 'in_transit')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="pending,picked,in_transit,out_for_delivery,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="service_request_id"/>
+                            <field name="customer_id"/>
+                            <field name="assigned_driver_id"/>
+                            <field name="current_job_id"/>
+                        </group>
+                        <group>
+                            <field name="picked_at"/>
+                            <field name="delivered_at"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Parcel Details">
+                            <group>
+                                <group string="Description">
+                                    <field name="description" nolabel="1"/>
+                                </group>
+                                <group string="Physical Properties">
+                                    <field name="weight"/>
+                                    <field name="length"/>
+                                    <field name="width"/>
+                                    <field name="height"/>
+                                    <field name="volume"/>
+                                    <field name="declared_value"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Proof of Delivery" invisible="state not in ('delivered', 'out_for_delivery')">
+                            <group>
+                                <group>
+                                    <field name="recipient_name"/>
+                                    <field name="pod_notes"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Signature">
+                                    <field name="pod_signature" widget="image" class="oe_avatar"/>
+                                </group>
+                                <group string="Photo">
+                                    <field name="pod_photo" widget="image" class="oe_avatar"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Parcel Kanban View -->
+    <record id="view_parcel_kanban" model="ir.ui.view">
+        <field name="name">routy.parcel.kanban</field>
+        <field name="model">routy.parcel</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <field name="weight"/>
+                <field name="state"/>
+                <progressbar field="state" colors='{"delivered": "success", "out_for_delivery": "warning", "failed": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <field name="service_request_id"/>
+                                    <div>
+                                        <field name="customer_id"/>
+                                    </div>
+                                    <div t-if="record.weight.raw_value">
+                                        <i class="fa fa-balance-scale"/> <field name="weight"/> kg
+                                    </div>
+                                    <div t-if="record.assigned_driver_id.raw_value">
+                                        <i class="fa fa-user"/> <field name="assigned_driver_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Parcel Search View -->
+    <record id="view_parcel_search" model="ir.ui.view">
+        <field name="name">routy.parcel.search</field>
+        <field name="model">routy.parcel</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <field name="assigned_driver_id"/>
+                <filter string="Pending" name="pending" domain="[('state', '=', 'pending')]"/>
+                <filter string="In Transit" name="in_transit" domain="[('state', '=', 'in_transit')]"/>
+                <filter string="Out for Delivery" name="out_for_delivery" domain="[('state', '=', 'out_for_delivery')]"/>
+                <filter string="Delivered" name="delivered" domain="[('state', '=', 'delivered')]"/>
+                <filter string="Failed" name="failed" domain="[('state', '=', 'failed')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Service Request" name="group_service_request" context="{'group_by': 'service_request_id'}"/>
+                    <filter string="Customer" name="group_customer" context="{'group_by': 'customer_id'}"/>
+                    <filter string="Driver" name="group_driver" context="{'group_by': 'assigned_driver_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Parcel Action -->
+    <record id="action_parcel" model="ir.actions.act_window">
+        <field name="name">Parcels</field>
+        <field name="res_model">routy.parcel</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_in_transit': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No parcels found!
+            </p>
+            <p>
+                Parcels are created under service requests.
+            </p>
+        </field>
+    </record>
+
+</odoo>

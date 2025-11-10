@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Service Request List View -->
+    <record id="view_service_request_list" model="ir.ui.view">
+        <field name="name">routy.service_request.list</field>
+        <field name="model">routy.service_request</field>
+        <field name="arch" type="xml">
+            <list string="Service Requests"
+                  decoration-success="state == 'delivered'"
+                  decoration-info="state in ('confirmed', 'assigned')"
+                  decoration-warning="state == 'in_progress'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="service_type"/>
+                <field name="pickup_address"/>
+                <field name="delivery_address"/>
+                <field name="assigned_driver_id"/>
+                <field name="parcel_count"/>
+                <field name="service_fee"/>
+                <field name="cod_amount"/>
+                <field name="scheduled_pickup_date"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'delivered'"
+                       decoration-info="state in ('confirmed', 'assigned')"
+                       decoration-warning="state == 'in_progress'"
+                       decoration-danger="state == 'cancelled'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Service Request Form View -->
+    <record id="view_service_request_form" model="ir.ui.view">
+        <field name="name">routy.service_request.form</field>
+        <field name="model">routy.service_request</field>
+        <field name="arch" type="xml">
+            <form string="Service Request">
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object"
+                            class="oe_highlight"
+                            invisible="state != 'draft'"/>
+                    <button name="action_assign_driver" string="Assign Driver" type="object"
+                            class="oe_highlight"
+                            invisible="state not in ('confirmed', 'assigned')"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="state in ('delivered', 'cancelled')"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,confirmed,assigned,in_progress,delivered"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_parcels" type="object"
+                                class="oe_stat_button" icon="fa-cube">
+                            <field name="parcel_count" widget="statinfo" string="Parcels"/>
+                        </button>
+                        <button name="action_view_jobs" type="object"
+                                class="oe_stat_button" icon="fa-tasks">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Jobs</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="service_type"/>
+                            <field name="assigned_driver_id"/>
+                        </group>
+                        <group>
+                            <field name="scheduled_pickup_date"/>
+                            <field name="scheduled_delivery_date"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pickup Information">
+                            <group>
+                                <group>
+                                    <field name="pickup_contact"/>
+                                    <field name="pickup_phone"/>
+                                    <field name="pickup_address"/>
+                                </group>
+                                <group>
+                                    <field name="pickup_lat"/>
+                                    <field name="pickup_lng"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Delivery Information">
+                            <group>
+                                <group>
+                                    <field name="delivery_contact"/>
+                                    <field name="delivery_phone"/>
+                                    <field name="delivery_address"/>
+                                </group>
+                                <group>
+                                    <field name="delivery_lat"/>
+                                    <field name="delivery_lng"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Parcels">
+                            <field name="parcel_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="weight"/>
+                                    <field name="declared_value"/>
+                                    <field name="state" widget="badge"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Financial">
+                            <group>
+                                <group>
+                                    <field name="service_fee"/>
+                                    <field name="cod_amount"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Timeline">
+                            <group>
+                                <group>
+                                    <field name="actual_pickup_date"/>
+                                    <field name="actual_delivery_date"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes">
+                            <field name="notes" placeholder="Additional notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Service Request Kanban View -->
+    <record id="view_service_request_kanban" model="ir.ui.view">
+        <field name="name">routy.service_request.kanban</field>
+        <field name="model">routy.service_request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="service_type"/>
+                <field name="state"/>
+                <field name="parcel_count"/>
+                <field name="service_fee"/>
+                <progressbar field="state" colors='{"delivered": "success", "in_progress": "warning", "cancelled": "danger"}'/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                    </div>
+                                    <span class="badge rounded-pill">
+                                        <field name="service_type"/>
+                                    </span>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <field name="customer_id"/>
+                                    <div>
+                                        <i class="fa fa-cube"/> <field name="parcel_count"/> Parcels
+                                    </div>
+                                    <div t-if="record.assigned_driver_id.raw_value">
+                                        <i class="fa fa-user"/> <field name="assigned_driver_id"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="service_fee" widget="monetary"/>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <field name="activity_ids" widget="kanban_activity"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Service Request Search View -->
+    <record id="view_service_request_search" model="ir.ui.view">
+        <field name="name">routy.service_request.search</field>
+        <field name="model">routy.service_request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="assigned_driver_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Confirmed" name="confirmed" domain="[('state', '=', 'confirmed')]"/>
+                <filter string="In Progress" name="in_progress" domain="[('state', '=', 'in_progress')]"/>
+                <filter string="Delivered" name="delivered" domain="[('state', '=', 'delivered')]"/>
+                <separator/>
+                <filter string="Local" name="local" domain="[('service_type', '=', 'local')]"/>
+                <filter string="Express" name="express" domain="[('service_type', '=', 'express')]"/>
+                <separator/>
+                <filter string="Today" name="today"
+                        domain="[('create_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Customer" name="group_customer" context="{'group_by': 'customer_id'}"/>
+                    <filter string="Driver" name="group_driver" context="{'group_by': 'assigned_driver_id'}"/>
+                    <filter string="Service Type" name="group_service_type" context="{'group_by': 'service_type'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Service Request Action -->
+    <record id="action_service_request" model="ir.actions.act_window">
+        <field name="name">Service Requests</field>
+        <field name="res_model">routy.service_request</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_in_progress': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first service request!
+            </p>
+            <p>
+                Service requests manage pickup and delivery operations.
+            </p>
+        </field>
+    </record>
+
+</odoo>

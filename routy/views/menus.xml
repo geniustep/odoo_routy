@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem id="menu_routy_root"
+              name="Routy"
+              sequence="10"
+              web_icon="routy,static/description/icon.png"/>
+
+    <!-- Operations Menu -->
+    <menuitem id="menu_routy_operations"
+              name="Operations"
+              parent="menu_routy_root"
+              sequence="10"/>
+
+    <menuitem id="menu_service_request"
+              name="Service Requests"
+              parent="menu_routy_operations"
+              action="action_service_request"
+              sequence="10"/>
+
+    <menuitem id="menu_parcel"
+              name="Parcels"
+              parent="menu_routy_operations"
+              action="action_parcel"
+              sequence="20"/>
+
+    <menuitem id="menu_job"
+              name="Jobs"
+              parent="menu_routy_operations"
+              action="action_job"
+              sequence="30"/>
+
+    <menuitem id="menu_route_plan"
+              name="Route Plans"
+              parent="menu_routy_operations"
+              action="action_route_plan"
+              sequence="40"/>
+
+    <!-- Logistics Menu -->
+    <menuitem id="menu_routy_logistics"
+              name="Logistics"
+              parent="menu_routy_root"
+              sequence="20"/>
+
+    <menuitem id="menu_hub"
+              name="Hubs"
+              parent="menu_routy_logistics"
+              action="action_hub"
+              sequence="10"/>
+
+    <menuitem id="menu_linehaul"
+              name="Linehauls"
+              parent="menu_routy_logistics"
+              action="action_linehaul"
+              sequence="20"/>
+
+    <!-- Financial Menu -->
+    <menuitem id="menu_routy_financial"
+              name="Financial"
+              parent="menu_routy_root"
+              sequence="30"/>
+
+    <menuitem id="menu_payment_record"
+              name="Payment Records"
+              parent="menu_routy_financial"
+              action="action_payment_record"
+              sequence="10"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_routy_configuration"
+              name="Configuration"
+              parent="menu_routy_root"
+              sequence="90"
+              groups="group_manager"/>
+
+    <menuitem id="menu_partner_contract"
+              name="Partner Contracts"
+              parent="menu_routy_configuration"
+              action="action_partner_contract"
+              sequence="10"/>
+
+    <menuitem id="menu_incident"
+              name="Incidents"
+              parent="menu_routy_root"
+              action="action_incident"
+              sequence="80"/>
+
+    <menuitem id="menu_incident_tag"
+              name="Incident Tags"
+              parent="menu_routy_configuration"
+              action="action_incident_tag"
+              sequence="20"/>
+
+</odoo>

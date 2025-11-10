@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Reconciliation Wizard Form -->
+    <record id="view_reconciliation_wizard_form" model="ir.ui.view">
+        <field name="name">routy.reconciliation.wizard.form</field>
+        <field name="model">routy.reconciliation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reconcile Payments">
+                <group>
+                    <group>
+                        <field name="driver_id"/>
+                        <field name="date"/>
+                        <field name="currency_id" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="total_expected" widget="monetary"/>
+                        <field name="total_collected" widget="monetary"/>
+                        <field name="difference" widget="monetary"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="payment_record_ids" nolabel="1">
+                        <list>
+                            <field name="name"/>
+                            <field name="service_request_id"/>
+                            <field name="payment_method"/>
+                            <field name="expected_amount"/>
+                            <field name="amount"/>
+                            <field name="reconciliation_difference"/>
+                        </list>
+                    </field>
+                </group>
+                <group>
+                    <field name="notes" placeholder="Reconciliation notes..."/>
+                </group>
+                <footer>
+                    <button name="action_preview" string="Preview" type="object" class="btn-secondary"/>
+                    <button name="action_reconcile" string="Reconcile" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

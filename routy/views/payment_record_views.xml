@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Payment Record List View -->
+    <record id="view_payment_record_list" model="ir.ui.view">
+        <field name="name">routy.payment_record.list</field>
+        <field name="model">routy.payment_record</field>
+        <field name="arch" type="xml">
+            <list string="Payment Records"
+                  decoration-info="state == 'collected'"
+                  decoration-success="state == 'reconciled'">
+                <field name="name"/>
+                <field name="driver_id"/>
+                <field name="service_request_id"/>
+                <field name="customer_id"/>
+                <field name="amount"/>
+                <field name="payment_method"/>
+                <field name="collected_at"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Payment Record Form View -->
+    <record id="view_payment_record_form" model="ir.ui.view">
+        <field name="name">routy.payment_record.form</field>
+        <field name="model">routy.payment_record</field>
+        <field name="arch" type="xml">
+            <form string="Payment Record">
+                <header>
+                    <button name="action_collect" string="Mark Collected" type="object"
+                            class="oe_highlight" invisible="state != 'pending'"/>
+                    <button name="action_reconcile" string="Reconcile" type="object"
+                            class="oe_highlight" invisible="state != 'collected'"/>
+                    <button name="action_open_reconciliation_wizard" string="Reconcile..." type="object"
+                            invisible="state != 'collected'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="pending,collected,reconciled"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="service_request_id"/>
+                            <field name="parcel_id" domain="[('service_request_id', '=', service_request_id)]"/>
+                            <field name="customer_id"/>
+                            <field name="driver_id"/>
+                        </group>
+                        <group>
+                            <field name="payment_method"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="expected_amount"/>
+                            <field name="amount"/>
+                            <field name="reconciliation_difference"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Timeline">
+                            <group>
+                                <group>
+                                    <field name="collected_at"/>
+                                    <field name="reconciled_at"/>
+                                </group>
+                                <group>
+                                    <field name="reconciled_by_id"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Reconciliation Notes">
+                            <field name="reconciliation_notes" placeholder="Reconciliation notes..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Payment Record Pivot View -->
+    <record id="view_payment_record_pivot" model="ir.ui.view">
+        <field name="name">routy.payment_record.pivot</field>
+        <field name="model">routy.payment_record</field>
+        <field name="arch" type="xml">
+            <pivot string="Payment Analysis">
+                <field name="driver_id" type="row"/>
+                <field name="payment_method" type="col"/>
+                <field name="amount" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Payment Record Graph View -->
+    <record id="view_payment_record_graph" model="ir.ui.view">
+        <field name="name">routy.payment_record.graph</field>
+        <field name="model">routy.payment_record</field>
+        <field name="arch" type="xml">
+            <graph string="Payment Analysis" type="bar">
+                <field name="driver_id"/>
+                <field name="amount" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Payment Record Search View -->
+    <record id="view_payment_record_search" model="ir.ui.view">
+        <field name="name">routy.payment_record.search</field>
+        <field name="model">routy.payment_record</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="driver_id"/>
+                <field name="customer_id"/>
+                <field name="service_request_id"/>
+                <filter string="Pending" name="pending" domain="[('state', '=', 'pending')]"/>
+                <filter string="Collected" name="collected" domain="[('state', '=', 'collected')]"/>
+                <filter string="Reconciled" name="reconciled" domain="[('state', '=', 'reconciled')]"/>
+                <separator/>
+                <filter string="Cash" name="cash" domain="[('payment_method', '=', 'cash')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Driver" name="group_driver" context="{'group_by': 'driver_id'}"/>
+                    <filter string="Payment Method" name="group_payment_method" context="{'group_by': 'payment_method'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Payment Record Action -->
+    <record id="action_payment_record" model="ir.actions.act_window">
+        <field name="name">Payment Records</field>
+        <field name="res_model">routy.payment_record</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="context">{'search_default_collected': 1}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- Categories -->
+        <record id="module_category_routy" model="ir.module.category">
+            <field name="name">Routy</field>
+            <field name="description">Delivery Management System</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Groups -->
+        <record id="group_driver" model="res.groups">
+            <field name="name">Driver</field>
+            <field name="category_id" ref="module_category_routy"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_dispatcher" model="res.groups">
+            <field name="name">Dispatcher</field>
+            <field name="category_id" ref="module_category_routy"/>
+            <field name="implied_ids" eval="[(4, ref('group_driver'))]"/>
+        </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_category_routy"/>
+            <field name="implied_ids" eval="[(4, ref('group_dispatcher'))]"/>
+        </record>
+
+        <!-- Record Rules -->
+
+        <!-- Driver can only see their own jobs -->
+        <record id="job_driver_rule" model="ir.rule">
+            <field name="name">Driver: Own Jobs Only</field>
+            <field name="model_id" ref="model_routy_job"/>
+            <field name="domain_force">[('driver_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_driver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Driver can see service requests related to their jobs -->
+        <record id="service_request_driver_rule" model="ir.rule">
+            <field name="name">Driver: Related Service Requests</field>
+            <field name="model_id" ref="model_routy_service_request"/>
+            <field name="domain_force">[('assigned_driver_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_driver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Driver can see parcels related to their service requests -->
+        <record id="parcel_driver_rule" model="ir.rule">
+            <field name="name">Driver: Related Parcels</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="domain_force">[('assigned_driver_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_driver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Driver can see their own route plans -->
+        <record id="route_plan_driver_rule" model="ir.rule">
+            <field name="name">Driver: Own Route Plans</field>
+            <field name="model_id" ref="model_routy_route_plan"/>
+            <field name="domain_force">[('driver_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_driver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Driver can see their own payment records -->
+        <record id="payment_record_driver_rule" model="ir.rule">
+            <field name="name">Driver: Own Payment Records</field>
+            <field name="model_id" ref="model_routy_payment_record"/>
+            <field name="domain_force">[('driver_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('group_driver'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher has full access except to delete -->
+        <record id="all_models_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Read/Write Access</field>
+            <field name="model_id" ref="model_routy_service_request"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Manager has full access to everything -->
+        <record id="all_models_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Access</field>
+            <field name="model_id" ref="model_routy_service_request"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

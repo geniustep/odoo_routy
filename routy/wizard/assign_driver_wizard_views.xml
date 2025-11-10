@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Assign Driver Wizard Form -->
+    <record id="view_assign_driver_wizard_form" model="ir.ui.view">
+        <field name="name">routy.assign.driver.wizard.form</field>
+        <field name="model">routy.assign.driver.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Assign Driver">
+                <group>
+                    <field name="service_request_id" readonly="1"/>
+                    <field name="driver_id"/>
+                </group>
+                <group>
+                    <group>
+                        <field name="scheduled_pickup"/>
+                        <field name="scheduled_delivery"/>
+                    </group>
+                    <group>
+                        <field name="create_pickup_job"/>
+                        <field name="create_delivery_job"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="notes" placeholder="Additional notes for the driver..."/>
+                </group>
+                <footer>
+                    <button name="action_assign" string="Assign" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

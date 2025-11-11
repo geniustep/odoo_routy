@@ -102,10 +102,202 @@
             <field name="perm_unlink" eval="False"/>
         </record>
 
+        <!-- Dispatcher: Parcels -->
+        <record id="parcel_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Parcels Access</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Jobs -->
+        <record id="job_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Jobs Access</field>
+            <field name="model_id" ref="model_routy_job"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Route Plans -->
+        <record id="route_plan_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Route Plans Access</field>
+            <field name="model_id" ref="model_routy_route_plan"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Payment Records -->
+        <record id="payment_record_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Payment Records Access</field>
+            <field name="model_id" ref="model_routy_payment_record"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Linehauls -->
+        <record id="linehaul_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Linehauls Access</field>
+            <field name="model_id" ref="model_routy_linehaul"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Hubs -->
+        <record id="hub_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Hubs Access</field>
+            <field name="model_id" ref="model_routy_hub"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Incidents -->
+        <record id="incident_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Incidents Access</field>
+            <field name="model_id" ref="model_routy_incident"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Dispatcher: Partner Contracts -->
+        <record id="partner_contract_dispatcher_rule" model="ir.rule">
+            <field name="name">Dispatcher: Full Partner Contracts Access</field>
+            <field name="model_id" ref="model_routy_partner_contract"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_dispatcher'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
         <!-- Manager has full access to everything -->
         <record id="all_models_manager_rule" model="ir.rule">
             <field name="name">Manager: Full Access</field>
             <field name="model_id" ref="model_routy_service_request"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Parcels -->
+        <record id="parcel_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Parcels Access</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Jobs -->
+        <record id="job_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Jobs Access</field>
+            <field name="model_id" ref="model_routy_job"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Route Plans -->
+        <record id="route_plan_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Route Plans Access</field>
+            <field name="model_id" ref="model_routy_route_plan"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Payment Records -->
+        <record id="payment_record_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Payment Records Access</field>
+            <field name="model_id" ref="model_routy_payment_record"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Linehauls -->
+        <record id="linehaul_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Linehauls Access</field>
+            <field name="model_id" ref="model_routy_linehaul"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Hubs -->
+        <record id="hub_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Hubs Access</field>
+            <field name="model_id" ref="model_routy_hub"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Incidents -->
+        <record id="incident_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Incidents Access</field>
+            <field name="model_id" ref="model_routy_incident"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Manager: Partner Contracts -->
+        <record id="partner_contract_manager_rule" model="ir.rule">
+            <field name="name">Manager: Full Partner Contracts Access</field>
+            <field name="model_id" ref="model_routy_partner_contract"/>
             <field name="domain_force">[(1, '=', 1)]</field>
             <field name="groups" eval="[(4, ref('group_manager'))]"/>
             <field name="perm_read" eval="True"/>

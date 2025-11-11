@@ -95,7 +95,6 @@ class ServiceRequest(models.Model):
     assigned_driver_id = fields.Many2one(
         'res.users',
         string='Assigned Driver',
-        domain="[('groups_id', 'in', [%(routy.group_driver)d])]",
         tracking=True,
         index=True
     )

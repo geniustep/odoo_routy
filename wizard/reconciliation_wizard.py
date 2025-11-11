@@ -11,8 +11,7 @@ class ReconciliationWizard(models.TransientModel):
     driver_id = fields.Many2one(
         'res.users',
         string='Driver',
-        required=True,
-        domain="[('groups_id', 'in', [%(routy.group_driver)d])]"
+        required=True
     )
     date = fields.Date(
         string='Date',

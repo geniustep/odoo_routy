@@ -37,7 +37,6 @@ class Job(models.Model):
         'res.users',
         string='Driver',
         required=True,
-        domain="[('groups_id', 'in', [%(routy.group_driver)d])]",
         tracking=True,
         index=True
     )

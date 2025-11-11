@@ -53,7 +53,6 @@ class Incident(models.Model):
     driver_id = fields.Many2one(
         'res.users',
         string='Driver',
-        domain="[('groups_id', 'in', [%(routy.group_driver)d])]",
         tracking=True,
         index=True
     )

@@ -1,0 +1,1079 @@
+# Translation file for Odoo 18
+# Module: odoo_routy
+# Language: fr
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-11 12:00:00\n"
+"PO-Revision-Date: 2025-01-11 12:00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: odoo_routy
+#: model:ir.module.category,name:odoo_routy.module_category_routy
+msgid "Routy"
+msgstr "Routy"
+
+#. module: odoo_routy
+#: model:ir.module.category,description:odoo_routy.module_category_routy
+msgid "Delivery Management System"
+msgstr "Système de gestion de livraison"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_driver
+msgid "Driver"
+msgstr "Chauffeur"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_dispatcher
+msgid "Dispatcher"
+msgstr "Répartiteur"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_manager
+msgid "Manager"
+msgstr "Gestionnaire"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_root
+msgid "Routy"
+msgstr "Routy"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_operations
+msgid "Operations"
+msgstr "Opérations"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_service_request
+msgid "Service Requests"
+msgstr "Demandes de service"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_parcel
+msgid "Parcels"
+msgstr "Colis"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_job
+msgid "Jobs"
+msgstr "Tâches"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_route_plan
+msgid "Route Plans"
+msgstr "Plans d'itinéraire"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_logistics
+msgid "Logistics"
+msgstr "Logistique"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_hub
+msgid "Hubs"
+msgstr "Centres"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_linehaul
+msgid "Linehauls"
+msgstr "Transport interurbain"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_financial
+msgid "Financial"
+msgstr "Financier"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_payment_record
+msgid "Payment Records"
+msgstr "Enregistrements de paiement"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_configuration
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_partner_contract
+msgid "Partner Contracts"
+msgstr "Contrats de partenaires"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_incident
+msgid "Incidents"
+msgstr "Incidents"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_incident_tag
+msgid "Incident Tags"
+msgstr "Étiquettes d'incident"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_service_request
+msgid "Service Request"
+msgstr "Demande de service"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__name
+msgid "Request Number"
+msgstr "Numéro de demande"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__customer_id
+msgid "Customer/Sender"
+msgstr "Client/Expéditeur"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__service_type
+msgid "Service Type"
+msgstr "Type de service"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Local Delivery"
+msgstr "Livraison locale"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Express"
+msgstr "Express"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Scheduled"
+msgstr "Planifié"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__state
+msgid "Status"
+msgstr "Statut"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Assigned"
+msgstr "Assigné"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "In Progress"
+msgstr "En cours"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Delivered"
+msgstr "Livré"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__assigned_driver_id
+msgid "Assigned Driver"
+msgstr "Chauffeur assigné"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__pickup_address
+msgid "Pickup Address"
+msgstr "Adresse de collecte"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__delivery_address
+msgid "Delivery Address"
+msgstr "Adresse de livraison"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__service_fee
+msgid "Service Fee"
+msgstr "Frais de service"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__cod_amount
+msgid "COD Amount"
+msgstr "Montant contre remboursement"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_parcel
+msgid "Parcel"
+msgstr "Colis"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_job
+msgid "Job"
+msgstr "Tâche"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_hub
+msgid "Hub"
+msgstr "Centre"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_linehaul
+msgid "Linehaul"
+msgstr "Transport interurbain"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_route_plan
+msgid "Route Plan"
+msgstr "Plan d'itinéraire"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_payment_record
+msgid "Payment Record"
+msgstr "Enregistrement de paiement"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_incident
+msgid "Incident"
+msgstr "Incident"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_partner_contract
+msgid "Partner Contract"
+msgstr "Contrat de partenaire"
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/service_request.py:0
+#, python-format
+msgid "Service request is required."
+msgstr "La demande de service est requise."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Service request is required."
+msgstr "La demande de service est requise."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Driver %s has been assigned successfully!"
+msgstr "Le chauffeur %s a été assigné avec succès!"
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Only pending payments can be marked as collected."
+msgstr "Seuls les paiements en attente peuvent être marqués comme collectés."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Please specify the collected amount."
+msgstr "Veuillez spécifier le montant collecté."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Only collected payments can be reconciled."
+msgstr "Seuls les paiements collectés peuvent être réconciliés."
+
+# Additional Terms - Parcel States
+msgid "Pending"
+msgstr "En attente"
+
+msgid "Picked Up"
+msgstr "Collecté"
+
+msgid "In Transit"
+msgstr "En transit"
+
+msgid "Out for Delivery"
+msgstr "En livraison"
+
+msgid "Failed"
+msgstr "Échoué"
+
+msgid "Returned"
+msgstr "Retourné"
+
+# Job States
+msgid "Accepted"
+msgstr "Accepté"
+
+msgid "Completed"
+msgstr "Terminé"
+
+# Job Types
+msgid "Pickup"
+msgstr "Collecte"
+
+msgid "Delivery"
+msgstr "Livraison"
+
+# Buttons
+msgid "Confirm"
+msgstr "Confirmer"
+
+msgid "Assign Driver"
+msgstr "Assigner un chauffeur"
+
+msgid "Cancel"
+msgstr "Annuler"
+
+msgid "Activate"
+msgstr "Activer"
+
+msgid "Terminate"
+msgstr "Résilier"
+
+msgid "Start Investigation"
+msgstr "Démarrer l'enquête"
+
+msgid "Resolve"
+msgstr "Résoudre"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Reopen"
+msgstr "Rouvrir"
+
+msgid "Optimize Route"
+msgstr "Optimiser l'itinéraire"
+
+msgid "Complete"
+msgstr "Compléter"
+
+msgid "Depart"
+msgstr "Départ"
+
+msgid "Arrive"
+msgstr "Arrivée"
+
+msgid "Mark Collected"
+msgstr "Marquer comme collecté"
+
+msgid "Reconcile"
+msgstr "Réconcilier"
+
+msgid "Reconcile..."
+msgstr "Réconcilier..."
+
+# Pages/Tabs
+msgid "Pickup Information"
+msgstr "Informations de collecte"
+
+msgid "Delivery Information"
+msgstr "Informations de livraison"
+
+msgid "Financial"
+msgstr "Financier"
+
+msgid "Timeline"
+msgstr "Chronologie"
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Related Records"
+msgstr "Enregistrements liés"
+
+msgid "Location"
+msgstr "Emplacement"
+
+msgid "Resolution"
+msgstr "Résolution"
+
+msgid "Attachments"
+msgstr "Pièces jointes"
+
+msgid "Tags"
+msgstr "Étiquettes"
+
+msgid "Schedule"
+msgstr "Planification"
+
+msgid "Parcels"
+msgstr "Colis"
+
+msgid "Costs"
+msgstr "Coûts"
+
+msgid "Statistics"
+msgstr "Statistiques"
+
+msgid "Jobs"
+msgstr "Tâches"
+
+msgid "Financial Terms"
+msgstr "Conditions financières"
+
+msgid "Performance"
+msgstr "Performance"
+
+msgid "Contract Document"
+msgstr "Document contractuel"
+
+msgid "Terms & Conditions"
+msgstr "Termes et conditions"
+
+msgid "Operating Hours"
+msgstr "Heures d'ouverture"
+
+msgid "Reconciliation Notes"
+msgstr "Notes de réconciliation"
+
+# Filters
+msgid "Today"
+msgstr "Aujourd'hui"
+
+msgid "Group By"
+msgstr "Grouper par"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Severity"
+msgstr "Gravité"
+
+msgid "State"
+msgstr "État"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Partner"
+msgstr "Partenaire"
+
+msgid "Partner Type"
+msgstr "Type de partenaire"
+
+msgid "Active"
+msgstr "Actif"
+
+msgid "Inactive"
+msgstr "Inactif"
+
+msgid "Expired"
+msgstr "Expiré"
+
+msgid "Carrier"
+msgstr "Transporteur"
+
+msgid "Freelancer"
+msgstr "Freelance"
+
+msgid "Hub Partner"
+msgstr "Partenaire de centre"
+
+msgid "Reported"
+msgstr "Signalé"
+
+msgid "Investigating"
+msgstr "Enquête en cours"
+
+msgid "Resolved"
+msgstr "Résolu"
+
+msgid "Critical"
+msgstr "Critique"
+
+msgid "High"
+msgstr "Élevé"
+
+msgid "Optimized"
+msgstr "Optimisé"
+
+msgid "Not Optimized"
+msgstr "Non optimisé"
+
+msgid "In Transit"
+msgstr "En transit"
+
+msgid "Arrived"
+msgstr "Arrivé"
+
+msgid "Main Hub"
+msgstr "Centre principal"
+
+msgid "Distribution Center"
+msgstr "Centre de distribution"
+
+msgid "Micro Hub"
+msgstr "Micro centre"
+
+msgid "Hub Type"
+msgstr "Type de centre"
+
+msgid "City"
+msgstr "Ville"
+
+msgid "Departure Hub"
+msgstr "Centre de départ"
+
+msgid "Arrival Hub"
+msgstr "Centre d'arrivée"
+
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+# Fields
+msgid "Tracking Number"
+msgstr "Numéro de suivi"
+
+msgid "Content Description"
+msgstr "Description du contenu"
+
+msgid "Weight (kg)"
+msgstr "Poids (kg)"
+
+msgid "Length (cm)"
+msgstr "Longueur (cm)"
+
+msgid "Width (cm)"
+msgstr "Largeur (cm)"
+
+msgid "Height (cm)"
+msgstr "Hauteur (cm)"
+
+msgid "Volume (cm³)"
+msgstr "Volume (cm³)"
+
+msgid "Declared Value"
+msgstr "Valeur déclarée"
+
+msgid "Job Reference"
+msgstr "Référence de tâche"
+
+msgid "Job Type"
+msgstr "Type de tâche"
+
+msgid "Location Address"
+msgstr "Adresse de l'emplacement"
+
+msgid "Latitude"
+msgstr "Latitude"
+
+msgid "Longitude"
+msgstr "Longitude"
+
+msgid "Contact Name"
+msgstr "Nom du contact"
+
+msgid "Contact Phone"
+msgstr "Téléphone du contact"
+
+msgid "Scheduled Time"
+msgstr "Heure prévue"
+
+msgid "Started At"
+msgstr "Commencé à"
+
+msgid "Completed At"
+msgstr "Terminé à"
+
+msgid "Incident Reference"
+msgstr "Référence d'incident"
+
+msgid "Incident Type"
+msgstr "Type d'incident"
+
+msgid "Incident Title"
+msgstr "Titre de l'incident"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Reported By"
+msgstr "Signalé par"
+
+msgid "Reported At"
+msgstr "Signalé à"
+
+msgid "Incident Location"
+msgstr "Emplacement de l'incident"
+
+msgid "Contract Number"
+msgstr "Numéro de contrat"
+
+msgid "Start Date"
+msgstr "Date de début"
+
+msgid "End Date"
+msgstr "Date de fin"
+
+msgid "Rate per KM"
+msgstr "Tarif par km"
+
+msgid "Rate per Delivery"
+msgstr "Tarif par livraison"
+
+msgid "Minimum Guarantee"
+msgstr "Garantie minimale"
+
+msgid "SLA Target (%)"
+msgstr "Objectif SLA (%)"
+
+msgid "Actual Performance (%)"
+msgstr "Performance réelle (%)"
+
+msgid "Performance Score"
+msgstr "Score de performance"
+
+msgid "Payment Reference"
+msgstr "Référence de paiement"
+
+msgid "Collecting Driver"
+msgstr "Chauffeur collecteur"
+
+msgid "Amount"
+msgstr "Montant"
+
+msgid "Payment Method"
+msgstr "Méthode de paiement"
+
+msgid "Collected At"
+msgstr "Collecté à"
+
+msgid "Reconciled At"
+msgstr "Réconcilié à"
+
+msgid "Expected Amount"
+msgstr "Montant attendu"
+
+msgid "Difference"
+msgstr "Différence"
+
+msgid "Reconciled By"
+msgstr "Réconcilié par"
+
+msgid "Reconciliation Notes"
+msgstr "Notes de réconciliation"
+
+# Error Messages
+msgid "Cannot confirm a service request without parcels."
+msgstr "Impossible de confirmer une demande de service sans colis."
+
+msgid "Cannot cancel a delivered service request."
+msgstr "Impossible d'annuler une demande de service livrée."
+
+msgid "Only pending parcels can be marked as picked."
+msgstr "Seuls les colis en attente peuvent être marqués comme collectés."
+
+msgid "Only picked or pending parcels can be marked as in transit."
+msgstr "Seuls les colis collectés ou en attente peuvent être marqués comme en transit."
+
+msgid "Only in-transit or picked parcels can be marked as out for delivery."
+msgstr "Seuls les colis en transit ou collectés peuvent être marqués comme en livraison."
+
+msgid "Only parcels out for delivery can be marked as delivered."
+msgstr "Seuls les colis en livraison peuvent être marqués comme livrés."
+
+msgid "Please provide proof of delivery (signature or photo)."
+msgstr "Veuillez fournir une preuve de livraison (signature ou photo)."
+
+msgid "Only parcels in delivery can be marked as failed."
+msgstr "Seuls les colis en livraison peuvent être marqués comme échoués."
+
+msgid "Weight cannot be negative"
+msgstr "Le poids ne peut pas être négatif"
+
+msgid "Length cannot be negative"
+msgstr "La longueur ne peut pas être négative"
+
+msgid "Width cannot be negative"
+msgstr "La largeur ne peut pas être négative"
+
+msgid "Height cannot be negative"
+msgstr "La hauteur ne peut pas être négative"
+
+msgid "Only assigned jobs can be accepted."
+msgstr "Seules les tâches assignées peuvent être acceptées."
+
+msgid "Only accepted or assigned jobs can be started."
+msgstr "Seules les tâches acceptées ou assignées peuvent être démarrées."
+
+msgid "Only in-progress jobs can be completed."
+msgstr "Seules les tâches en cours peuvent être terminées."
+
+msgid "Only accepted or in-progress jobs can be marked as failed."
+msgstr "Seules les tâches acceptées ou en cours peuvent être marquées comme échouées."
+
+msgid "Please provide a failure reason."
+msgstr "Veuillez fournir une raison d'échec."
+
+msgid "Latitude must be between -90 and 90"
+msgstr "La latitude doit être entre -90 et 90"
+
+msgid "Longitude must be between -180 and 180"
+msgstr "La longitude doit être entre -180 et 180"
+
+msgid "Only draft linehauls can be confirmed."
+msgstr "Seuls les transports interurbains en brouillon peuvent être confirmés."
+
+msgid "Please assign a driver before confirming."
+msgstr "Veuillez assigner un chauffeur avant de confirmer."
+
+msgid "Please add parcels before confirming."
+msgstr "Veuillez ajouter des colis avant de confirmer."
+
+msgid "Only confirmed linehauls can depart."
+msgstr "Seuls les transports interurbains confirmés peuvent partir."
+
+msgid "Only in-transit linehauls can arrive."
+msgstr "Seuls les transports interurbains en transit peuvent arriver."
+
+msgid "Cannot cancel an arrived linehaul."
+msgstr "Impossible d'annuler un transport interurbain arrivé."
+
+msgid "Departure and arrival hubs must be different."
+msgstr "Les centres de départ et d'arrivée doivent être différents."
+
+msgid "Scheduled departure must be before scheduled arrival."
+msgstr "Le départ prévu doit être avant l'arrivée prévue."
+
+msgid "Route - %s - %s"
+msgstr "Itinéraire - %s - %s"
+
+msgid "Only draft route plans can be activated."
+msgstr "Seuls les plans d'itinéraire en brouillon peuvent être activés."
+
+msgid "Cannot activate a route plan without jobs."
+msgstr "Impossible d'activer un plan d'itinéraire sans tâches."
+
+msgid "Only active route plans can be completed."
+msgstr "Seuls les plans d'itinéraire actifs peuvent être terminés."
+
+msgid "Cannot cancel a completed route plan."
+msgstr "Impossible d'annuler un plan d'itinéraire terminé."
+
+msgid "Success"
+msgstr "Succès"
+
+msgid "Route has been optimized!"
+msgstr "L'itinéraire a été optimisé!"
+
+msgid "Map View"
+msgstr "Vue carte"
+
+msgid "Map view integration coming soon!"
+msgstr "Intégration de la vue carte bientôt!"
+
+msgid "Only reported incidents can be moved to investigating."
+msgstr "Seuls les incidents signalés peuvent être déplacés vers l'enquête."
+
+msgid "Only reported or investigating incidents can be resolved."
+msgstr "Seuls les incidents signalés ou en enquête peuvent être résolus."
+
+msgid "Please provide resolution notes before resolving."
+msgstr "Veuillez fournir des notes de résolution avant de résoudre."
+
+msgid "Only resolved incidents can be closed."
+msgstr "Seuls les incidents résolus peuvent être fermés."
+
+msgid "Only resolved or closed incidents can be reopened."
+msgstr "Seuls les incidents résolus ou fermés peuvent être rouverts."
+
+msgid "Only draft contracts can be activated."
+msgstr "Seuls les contrats en brouillon peuvent être activés."
+
+msgid "Cannot terminate a contract that is not active or draft."
+msgstr "Impossible de résilier un contrat qui n'est pas actif ou en brouillon."
+
+msgid "Start date must be before end date."
+msgstr "La date de début doit être avant la date de fin."
+
+msgid "SLA target must be between 0 and 100."
+msgstr "L'objectif SLA doit être entre 0 et 100."
+
+msgid "Please select at least one payment record to reconcile."
+msgstr "Veuillez sélectionner au moins un enregistrement de paiement à réconcilier."
+
+msgid "Reconciled %d payment records for driver %s.\n"
+msgstr "Réconcilié %d enregistrements de paiement pour le chauffeur %s.\n"
+
+msgid "Total Expected: %.2f\n"
+msgstr "Total attendu: %.2f\n"
+
+msgid "Total Collected: %.2f\n"
+msgstr "Total collecté: %.2f\n"
+
+msgid "Excess: %.2f"
+msgstr "Excédent: %.2f"
+
+msgid "Shortage: %.2f"
+msgstr "Manque: %.2f"
+
+msgid "Balanced: No difference"
+msgstr "Équilibré: Aucune différence"
+
+msgid "Reconciliation Preview"
+msgstr "Aperçu de la réconciliation"
+
+# Incident Types
+msgid "Delay"
+msgstr "Retard"
+
+msgid "Damage"
+msgstr "Dommage"
+
+msgid "Loss"
+msgstr "Perte"
+
+msgid "Accident"
+msgstr "Accident"
+
+msgid "Customer Complaint"
+msgstr "Plainte client"
+
+msgid "Theft"
+msgstr "Vol"
+
+msgid "Vehicle Breakdown"
+msgstr "Panne de véhicule"
+
+msgid "Other"
+msgstr "Autre"
+
+# Severity Levels
+msgid "Low"
+msgstr "Faible"
+
+msgid "Medium"
+msgstr "Moyen"
+
+# Partner Types
+msgid "Carrier Company"
+msgstr "Société de transport"
+
+msgid "Freelance Driver"
+msgstr "Chauffeur indépendant"
+
+# Performance Scores
+msgid "Excellent (>95%)"
+msgstr "Excellent (>95%)"
+
+msgid "Good (85-95%)"
+msgstr "Bon (85-95%)"
+
+msgid "Average (75-85%)"
+msgstr "Moyen (75-85%)"
+
+msgid "Poor (<75%)"
+msgstr "Faible (<75%)"
+
+# Placeholders
+msgid "Additional notes..."
+msgstr "Notes supplémentaires..."
+
+msgid "Route notes..."
+msgstr "Notes d'itinéraire..."
+
+msgid "Incident Title"
+msgstr "Titre de l'incident"
+
+msgid "Detailed description of the incident..."
+msgstr "Description détaillée de l'incident..."
+
+msgid "Resolution notes..."
+msgstr "Notes de résolution..."
+
+msgid "Describe actions taken..."
+msgstr "Décrire les actions entreprises..."
+
+msgid "Preventive measures..."
+msgstr "Mesures préventives..."
+
+msgid "Hub Name"
+msgstr "Nom du centre"
+
+# Additional Fields
+msgid "Customer"
+msgstr "Client"
+
+msgid "Company"
+msgstr "Société"
+
+msgid "Currency"
+msgstr "Devise"
+
+msgid "Scheduled"
+msgstr "Planifié"
+
+msgid "Actual"
+msgstr "Réel"
+
+msgid "Action Taken"
+msgstr "Action entreprise"
+
+msgid "Preventive Measures"
+msgstr "Mesures préventives"
+
+msgid "Deliveries"
+msgstr "Livraisons"
+
+msgid "Parcels in Hub"
+msgstr "Colis dans le centre"
+
+msgid "Hub Jobs"
+msgstr "Tâches du centre"
+
+msgid "GPS Logs"
+msgstr "Journaux GPS"
+
+msgid "Route Jobs"
+msgstr "Tâches d'itinéraire"
+
+# Additional States
+msgid "Terminated"
+msgstr "Résilié"
+
+# Additional Terms
+msgid "Pickup Phone"
+msgstr "Téléphone de collecte"
+
+msgid "Delivery Phone"
+msgstr "Téléphone de livraison"
+
+msgid "Pickup Contact"
+msgstr "Contact de collecte"
+
+msgid "Delivery Contact"
+msgstr "Contact de livraison"
+
+msgid "Pickup Latitude"
+msgstr "Latitude de collecte"
+
+msgid "Pickup Longitude"
+msgstr "Longitude de collecte"
+
+msgid "Delivery Latitude"
+msgstr "Latitude de livraison"
+
+msgid "Delivery Longitude"
+msgstr "Longitude de livraison"
+
+msgid "Scheduled Pickup Date"
+msgstr "Date de collecte prévue"
+
+msgid "Scheduled Delivery Date"
+msgstr "Date de livraison prévue"
+
+msgid "Actual Pickup Date"
+msgstr "Date de collecte réelle"
+
+msgid "Actual Delivery Date"
+msgstr "Date de livraison réelle"
+
+msgid "Parcel Count"
+msgstr "Nombre de colis"
+
+msgid "Create Pickup Job"
+msgstr "Créer une tâche de collecte"
+
+msgid "Create Delivery Job"
+msgstr "Créer une tâche de livraison"
+
+msgid "Additional notes for the driver..."
+msgstr "Notes supplémentaires pour le chauffeur..."
+
+msgid "Scheduled Pickup"
+msgstr "Collecte prévue"
+
+msgid "Scheduled Delivery"
+msgstr "Livraison prévue"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Total Expected"
+msgstr "Total attendu"
+
+msgid "Total Collected"
+msgstr "Total collecté"
+
+msgid "Payment Analysis"
+msgstr "Analyse des paiements"
+
+msgid "Collected"
+msgstr "Collecté"
+
+msgid "Cash"
+msgstr "Espèces"
+
+msgid "Opening time must be between 0 and 24"
+msgstr "L'heure d'ouverture doit être entre 0 et 24"
+
+msgid "Closing time must be between 0 and 24"
+msgstr "L'heure de fermeture doit être entre 0 et 24"
+
+msgid "Opening time must be before closing time"
+msgstr "L'heure d'ouverture doit être avant l'heure de fermeture"
+
+msgid "Max capacity cannot be negative"
+msgstr "La capacité maximale ne peut pas être négative"
+
+msgid "Heading must be between 0 and 360 degrees"
+msgstr "Le cap doit être entre 0 et 360 degrés"
+
+msgid "Speed cannot be negative"
+msgstr "La vitesse ne peut pas être négative"
+
+msgid "Battery level must be between 0 and 100"
+msgstr "Le niveau de batterie doit être entre 0 et 100"
+
+msgid "Pickup latitude must be between -90 and 90"
+msgstr "La latitude de collecte doit être entre -90 et 90"
+
+msgid "Pickup longitude must be between -180 and 180"
+msgstr "La longitude de collecte doit être entre -180 et 180"
+
+msgid "Delivery latitude must be between -90 and 90"
+msgstr "La latitude de livraison doit être entre -90 et 90"
+
+msgid "Delivery longitude must be between -180 and 180"
+msgstr "La longitude de livraison doit être entre -180 et 180"
+
+msgid "Performance: %.2f%%"
+msgstr "Performance: %.2f%%"
+
+msgid "Driver: Own Jobs Only"
+msgstr "Chauffeur: Ses propres tâches uniquement"
+
+msgid "Driver: Related Service Requests"
+msgstr "Chauffeur: Demandes de service liées"
+
+msgid "Driver: Related Parcels"
+msgstr "Chauffeur: Colis liés"
+
+msgid "Driver: Own Route Plans"
+msgstr "Chauffeur: Ses propres plans d'itinéraire"
+
+msgid "Driver: Own Payment Records"
+msgstr "Chauffeur: Ses propres enregistrements de paiement"
+
+msgid "Dispatcher: Full Read/Write Access"
+msgstr "Répartiteur: Accès complet en lecture/écriture"
+
+msgid "Manager: Full Access"
+msgstr "Gestionnaire: Accès complet"
+
+msgid "Create your first service request!"
+msgstr "Créez votre première demande de service!"
+
+msgid "Service requests manage pickup and delivery operations."
+msgstr "Les demandes de service gèrent les opérations de collecte et de livraison."
+

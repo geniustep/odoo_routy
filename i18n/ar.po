@@ -1,0 +1,1079 @@
+# Translation file for Odoo 18
+# Module: odoo_routy
+# Language: ar
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-11 12:00:00\n"
+"PO-Revision-Date: 2025-01-11 12:00:00\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+
+#. module: odoo_routy
+#: model:ir.module.category,name:odoo_routy.module_category_routy
+msgid "Routy"
+msgstr "روتي"
+
+#. module: odoo_routy
+#: model:ir.module.category,description:odoo_routy.module_category_routy
+msgid "Delivery Management System"
+msgstr "نظام إدارة التوصيل"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_driver
+msgid "Driver"
+msgstr "سائق"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_dispatcher
+msgid "Dispatcher"
+msgstr "مشغل"
+
+#. module: odoo_routy
+#: model:res.groups,name:odoo_routy.group_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_root
+msgid "Routy"
+msgstr "روتي"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_operations
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_service_request
+msgid "Service Requests"
+msgstr "طلبات الخدمة"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_parcel
+msgid "Parcels"
+msgstr "الطرود"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_job
+msgid "Jobs"
+msgstr "المهام"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_route_plan
+msgid "Route Plans"
+msgstr "خطط الطرق"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_logistics
+msgid "Logistics"
+msgstr "اللوجستيات"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_hub
+msgid "Hubs"
+msgstr "المحطات"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_linehaul
+msgid "Linehauls"
+msgstr "النقل بين المدن"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_financial
+msgid "Financial"
+msgstr "المالية"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_payment_record
+msgid "Payment Records"
+msgstr "سجلات الدفع"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_routy_configuration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_partner_contract
+msgid "Partner Contracts"
+msgstr "عقود الشركاء"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_incident
+msgid "Incidents"
+msgstr "الحوادث"
+
+#. module: odoo_routy
+#: model:ir.ui.menu,name:odoo_routy.menu_incident_tag
+msgid "Incident Tags"
+msgstr "علامات الحوادث"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_service_request
+msgid "Service Request"
+msgstr "طلب الخدمة"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__name
+msgid "Request Number"
+msgstr "رقم الطلب"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__customer_id
+msgid "Customer/Sender"
+msgstr "العميل/المرسل"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__service_type
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Local Delivery"
+msgstr "توصيل محلي"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Express"
+msgstr "سريع"
+
+#. module: odoo_routy
+#: selection:routy.service_request,service_type:0
+msgid "Scheduled"
+msgstr "مجدول"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__state
+msgid "Status"
+msgstr "الحالة"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Assigned"
+msgstr "مخصص"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Delivered"
+msgstr "تم التسليم"
+
+#. module: odoo_routy
+#: selection:routy.service_request,state:0
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__assigned_driver_id
+msgid "Assigned Driver"
+msgstr "السائق المخصص"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__pickup_address
+msgid "Pickup Address"
+msgstr "عنوان الاستلام"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__delivery_address
+msgid "Delivery Address"
+msgstr "عنوان التسليم"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__service_fee
+msgid "Service Fee"
+msgstr "رسوم الخدمة"
+
+#. module: odoo_routy
+#: model:ir.model.fields,field_description:odoo_routy.field_routy_service_request__cod_amount
+msgid "COD Amount"
+msgstr "مبلغ الدفع عند الاستلام"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_parcel
+msgid "Parcel"
+msgstr "الطرد"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_job
+msgid "Job"
+msgstr "المهمة"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_hub
+msgid "Hub"
+msgstr "المحطة"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_linehaul
+msgid "Linehaul"
+msgstr "النقل بين المدن"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_route_plan
+msgid "Route Plan"
+msgstr "خطة الطريق"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_payment_record
+msgid "Payment Record"
+msgstr "سجل الدفع"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_incident
+msgid "Incident"
+msgstr "الحادث"
+
+#. module: odoo_routy
+#: model:ir.model,name:odoo_routy.model_routy_partner_contract
+msgid "Partner Contract"
+msgstr "عقد الشريك"
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/service_request.py:0
+#, python-format
+msgid "Service request is required."
+msgstr "طلب الخدمة مطلوب."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Service request is required."
+msgstr "طلب الخدمة مطلوب."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Driver %s has been assigned successfully!"
+msgstr "تم تعيين السائق %s بنجاح!"
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Only pending payments can be marked as collected."
+msgstr "يمكن فقط تحديد المدفوعات المعلقة كمحصلة."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Please specify the collected amount."
+msgstr "يرجى تحديد المبلغ المحصل."
+
+#. module: odoo_routy
+#: code:addons/odoo_routy/models/payment_record.py:0
+#, python-format
+msgid "Only collected payments can be reconciled."
+msgstr "يمكن فقط تسوية المدفوعات المحصلة."
+
+# Additional Terms - Parcel States
+msgid "Pending"
+msgstr "معلق"
+
+msgid "Picked Up"
+msgstr "تم الاستلام"
+
+msgid "In Transit"
+msgstr "قيد النقل"
+
+msgid "Out for Delivery"
+msgstr "جاهز للتسليم"
+
+msgid "Failed"
+msgstr "فشل"
+
+msgid "Returned"
+msgstr "مرتجع"
+
+# Job States
+msgid "Accepted"
+msgstr "مقبول"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+# Job Types
+msgid "Pickup"
+msgstr "استلام"
+
+msgid "Delivery"
+msgstr "تسليم"
+
+# Buttons
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Assign Driver"
+msgstr "تعيين سائق"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Activate"
+msgstr "تفعيل"
+
+msgid "Terminate"
+msgstr "إنهاء"
+
+msgid "Start Investigation"
+msgstr "بدء التحقيق"
+
+msgid "Resolve"
+msgstr "حل"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Reopen"
+msgstr "إعادة فتح"
+
+msgid "Optimize Route"
+msgstr "تحسين المسار"
+
+msgid "Complete"
+msgstr "إكمال"
+
+msgid "Depart"
+msgstr "انطلاق"
+
+msgid "Arrive"
+msgstr "وصول"
+
+msgid "Mark Collected"
+msgstr "تحديد كمحصلة"
+
+msgid "Reconcile"
+msgstr "تسوية"
+
+msgid "Reconcile..."
+msgstr "تسوية..."
+
+# Pages/Tabs
+msgid "Pickup Information"
+msgstr "معلومات الاستلام"
+
+msgid "Delivery Information"
+msgstr "معلومات التسليم"
+
+msgid "Financial"
+msgstr "المالية"
+
+msgid "Timeline"
+msgstr "الجدول الزمني"
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Related Records"
+msgstr "السجلات ذات الصلة"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "Resolution"
+msgstr "الحل"
+
+msgid "Attachments"
+msgstr "المرفقات"
+
+msgid "Tags"
+msgstr "العلامات"
+
+msgid "Schedule"
+msgstr "الجدولة"
+
+msgid "Parcels"
+msgstr "الطرود"
+
+msgid "Costs"
+msgstr "التكاليف"
+
+msgid "Statistics"
+msgstr "الإحصائيات"
+
+msgid "Jobs"
+msgstr "المهام"
+
+msgid "Financial Terms"
+msgstr "الشروط المالية"
+
+msgid "Performance"
+msgstr "الأداء"
+
+msgid "Contract Document"
+msgstr "وثيقة العقد"
+
+msgid "Terms & Conditions"
+msgstr "الشروط والأحكام"
+
+msgid "Operating Hours"
+msgstr "ساعات العمل"
+
+msgid "Reconciliation Notes"
+msgstr "ملاحظات التسوية"
+
+# Filters
+msgid "Today"
+msgstr "اليوم"
+
+msgid "Group By"
+msgstr "تجميع حسب"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Severity"
+msgstr "الشدة"
+
+msgid "State"
+msgstr "الحالة"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Partner"
+msgstr "الشريك"
+
+msgid "Partner Type"
+msgstr "نوع الشريك"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Inactive"
+msgstr "غير نشط"
+
+msgid "Expired"
+msgstr "منتهي"
+
+msgid "Carrier"
+msgstr "ناقل"
+
+msgid "Freelancer"
+msgstr "عامل حر"
+
+msgid "Hub Partner"
+msgstr "شريك محطة"
+
+msgid "Reported"
+msgstr "تم الإبلاغ"
+
+msgid "Investigating"
+msgstr "قيد التحقيق"
+
+msgid "Resolved"
+msgstr "محلول"
+
+msgid "Critical"
+msgstr "حرج"
+
+msgid "High"
+msgstr "عالي"
+
+msgid "Optimized"
+msgstr "محسّن"
+
+msgid "Not Optimized"
+msgstr "غير محسّن"
+
+msgid "In Transit"
+msgstr "قيد النقل"
+
+msgid "Arrived"
+msgstr "وصل"
+
+msgid "Main Hub"
+msgstr "المحطة الرئيسية"
+
+msgid "Distribution Center"
+msgstr "مركز التوزيع"
+
+msgid "Micro Hub"
+msgstr "محطة صغيرة"
+
+msgid "Hub Type"
+msgstr "نوع المحطة"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Departure Hub"
+msgstr "محطة المغادرة"
+
+msgid "Arrival Hub"
+msgstr "محطة الوصول"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+# Fields
+msgid "Tracking Number"
+msgstr "رقم التتبع"
+
+msgid "Content Description"
+msgstr "وصف المحتويات"
+
+msgid "Weight (kg)"
+msgstr "الوزن (كجم)"
+
+msgid "Length (cm)"
+msgstr "الطول (سم)"
+
+msgid "Width (cm)"
+msgstr "العرض (سم)"
+
+msgid "Height (cm)"
+msgstr "الارتفاع (سم)"
+
+msgid "Volume (cm³)"
+msgstr "الحجم (سم³)"
+
+msgid "Declared Value"
+msgstr "القيمة المعلنة"
+
+msgid "Job Reference"
+msgstr "مرجع المهمة"
+
+msgid "Job Type"
+msgstr "نوع المهمة"
+
+msgid "Location Address"
+msgstr "عنوان الموقع"
+
+msgid "Latitude"
+msgstr "خط العرض"
+
+msgid "Longitude"
+msgstr "خط الطول"
+
+msgid "Contact Name"
+msgstr "اسم جهة الاتصال"
+
+msgid "Contact Phone"
+msgstr "هاتف جهة الاتصال"
+
+msgid "Scheduled Time"
+msgstr "الوقت المجدول"
+
+msgid "Started At"
+msgstr "بدأ في"
+
+msgid "Completed At"
+msgstr "اكتمل في"
+
+msgid "Incident Reference"
+msgstr "مرجع الحادث"
+
+msgid "Incident Type"
+msgstr "نوع الحادث"
+
+msgid "Incident Title"
+msgstr "عنوان الحادث"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Reported By"
+msgstr "أبلغ بواسطة"
+
+msgid "Reported At"
+msgstr "أبلغ في"
+
+msgid "Incident Location"
+msgstr "موقع الحادث"
+
+msgid "Contract Number"
+msgstr "رقم العقد"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Rate per KM"
+msgstr "السعر لكل كيلومتر"
+
+msgid "Rate per Delivery"
+msgstr "السعر لكل تسليم"
+
+msgid "Minimum Guarantee"
+msgstr "الحد الأدنى المضمون"
+
+msgid "SLA Target (%)"
+msgstr "هدف اتفاقية مستوى الخدمة (%)"
+
+msgid "Actual Performance (%)"
+msgstr "الأداء الفعلي (%)"
+
+msgid "Performance Score"
+msgstr "نقاط الأداء"
+
+msgid "Payment Reference"
+msgstr "مرجع الدفع"
+
+msgid "Collecting Driver"
+msgstr "السائق المحصل"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "Collected At"
+msgstr "تم التحصيل في"
+
+msgid "Reconciled At"
+msgstr "تم التسوية في"
+
+msgid "Expected Amount"
+msgstr "المبلغ المتوقع"
+
+msgid "Difference"
+msgstr "الفرق"
+
+msgid "Reconciled By"
+msgstr "تم التسوية بواسطة"
+
+msgid "Reconciliation Notes"
+msgstr "ملاحظات التسوية"
+
+# Error Messages
+msgid "Cannot confirm a service request without parcels."
+msgstr "لا يمكن تأكيد طلب خدمة بدون طرود."
+
+msgid "Cannot cancel a delivered service request."
+msgstr "لا يمكن إلغاء طلب خدمة تم تسليمه."
+
+msgid "Only pending parcels can be marked as picked."
+msgstr "يمكن فقط تحديد الطرود المعلقة كمستلمة."
+
+msgid "Only picked or pending parcels can be marked as in transit."
+msgstr "يمكن فقط تحديد الطرود المستلمة أو المعلقة كقيد النقل."
+
+msgid "Only in-transit or picked parcels can be marked as out for delivery."
+msgstr "يمكن فقط تحديد الطرود قيد النقل أو المستلمة كجاهزة للتسليم."
+
+msgid "Only parcels out for delivery can be marked as delivered."
+msgstr "يمكن فقط تحديد الطرود الجاهزة للتسليم كمسلمة."
+
+msgid "Please provide proof of delivery (signature or photo)."
+msgstr "يرجى تقديم إثبات التسليم (توقيع أو صورة)."
+
+msgid "Only parcels in delivery can be marked as failed."
+msgstr "يمكن فقط تحديد الطرود قيد التسليم كفاشلة."
+
+msgid "Weight cannot be negative"
+msgstr "الوزن لا يمكن أن يكون سالباً"
+
+msgid "Length cannot be negative"
+msgstr "الطول لا يمكن أن يكون سالباً"
+
+msgid "Width cannot be negative"
+msgstr "العرض لا يمكن أن يكون سالباً"
+
+msgid "Height cannot be negative"
+msgstr "الارتفاع لا يمكن أن يكون سالباً"
+
+msgid "Only assigned jobs can be accepted."
+msgstr "يمكن فقط قبول المهام المخصصة."
+
+msgid "Only accepted or assigned jobs can be started."
+msgstr "يمكن فقط بدء المهام المقبولة أو المخصصة."
+
+msgid "Only in-progress jobs can be completed."
+msgstr "يمكن فقط إكمال المهام قيد التنفيذ."
+
+msgid "Only accepted or in-progress jobs can be marked as failed."
+msgstr "يمكن فقط تحديد المهام المقبولة أو قيد التنفيذ كفاشلة."
+
+msgid "Please provide a failure reason."
+msgstr "يرجى تقديم سبب الفشل."
+
+msgid "Latitude must be between -90 and 90"
+msgstr "خط العرض يجب أن يكون بين -90 و 90"
+
+msgid "Longitude must be between -180 and 180"
+msgstr "خط الطول يجب أن يكون بين -180 و 180"
+
+msgid "Only draft linehauls can be confirmed."
+msgstr "يمكن فقط تأكيد النقل بين المدن المسودة."
+
+msgid "Please assign a driver before confirming."
+msgstr "يرجى تعيين سائق قبل التأكيد."
+
+msgid "Please add parcels before confirming."
+msgstr "يرجى إضافة طرود قبل التأكيد."
+
+msgid "Only confirmed linehauls can depart."
+msgstr "يمكن فقط انطلاق النقل بين المدن المؤكدة."
+
+msgid "Only in-transit linehauls can arrive."
+msgstr "يمكن فقط وصول النقل بين المدن قيد النقل."
+
+msgid "Cannot cancel an arrived linehaul."
+msgstr "لا يمكن إلغاء نقل بين مدن وصل."
+
+msgid "Departure and arrival hubs must be different."
+msgstr "محطات المغادرة والوصول يجب أن تكون مختلفة."
+
+msgid "Scheduled departure must be before scheduled arrival."
+msgstr "مغادرة مجدولة يجب أن تكون قبل وصول مجدول."
+
+msgid "Route - %s - %s"
+msgstr "مسار - %s - %s"
+
+msgid "Only draft route plans can be activated."
+msgstr "يمكن فقط تفعيل خطط الطرق المسودة."
+
+msgid "Cannot activate a route plan without jobs."
+msgstr "لا يمكن تفعيل خطة طريق بدون مهام."
+
+msgid "Only active route plans can be completed."
+msgstr "يمكن فقط إكمال خطط الطرق النشطة."
+
+msgid "Cannot cancel a completed route plan."
+msgstr "لا يمكن إلغاء خطة طريق مكتملة."
+
+msgid "Success"
+msgstr "نجح"
+
+msgid "Route has been optimized!"
+msgstr "تم تحسين المسار!"
+
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "Map view integration coming soon!"
+msgstr "تكامل عرض الخريطة قريباً!"
+
+msgid "Only reported incidents can be moved to investigating."
+msgstr "يمكن فقط نقل الحوادث المبلغ عنها للتحقيق."
+
+msgid "Only reported or investigating incidents can be resolved."
+msgstr "يمكن فقط حل الحوادث المبلغ عنها أو قيد التحقيق."
+
+msgid "Please provide resolution notes before resolving."
+msgstr "يرجى تقديم ملاحظات الحل قبل الحل."
+
+msgid "Only resolved incidents can be closed."
+msgstr "يمكن فقط إغلاق الحوادث المحلولة."
+
+msgid "Only resolved or closed incidents can be reopened."
+msgstr "يمكن فقط إعادة فتح الحوادث المحلولة أو المغلقة."
+
+msgid "Only draft contracts can be activated."
+msgstr "يمكن فقط تفعيل العقود المسودة."
+
+msgid "Cannot terminate a contract that is not active or draft."
+msgstr "لا يمكن إنهاء عقد غير نشط أو مسودة."
+
+msgid "Start date must be before end date."
+msgstr "تاريخ البدء يجب أن يكون قبل تاريخ الانتهاء."
+
+msgid "SLA target must be between 0 and 100."
+msgstr "هدف اتفاقية مستوى الخدمة يجب أن يكون بين 0 و 100."
+
+msgid "Please select at least one payment record to reconcile."
+msgstr "يرجى اختيار سجل دفع واحد على الأقل للتسوية."
+
+msgid "Reconciled %d payment records for driver %s.\n"
+msgstr "تم تسوية %d سجل دفع للسائق %s.\n"
+
+msgid "Total Expected: %.2f\n"
+msgstr "المجموع المتوقع: %.2f\n"
+
+msgid "Total Collected: %.2f\n"
+msgstr "المجموع المحصل: %.2f\n"
+
+msgid "Excess: %.2f"
+msgstr "الزيادة: %.2f"
+
+msgid "Shortage: %.2f"
+msgstr "النقص: %.2f"
+
+msgid "Balanced: No difference"
+msgstr "متوازن: لا يوجد فرق"
+
+msgid "Reconciliation Preview"
+msgstr "معاينة التسوية"
+
+# Incident Types
+msgid "Delay"
+msgstr "تأخير"
+
+msgid "Damage"
+msgstr "ضرر"
+
+msgid "Loss"
+msgstr "خسارة"
+
+msgid "Accident"
+msgstr "حادث"
+
+msgid "Customer Complaint"
+msgstr "شكوى العميل"
+
+msgid "Theft"
+msgstr "سرقة"
+
+msgid "Vehicle Breakdown"
+msgstr "عطل المركبة"
+
+msgid "Other"
+msgstr "أخرى"
+
+# Severity Levels
+msgid "Low"
+msgstr "منخفض"
+
+msgid "Medium"
+msgstr "متوسط"
+
+# Partner Types
+msgid "Carrier Company"
+msgstr "شركة نقل"
+
+msgid "Freelance Driver"
+msgstr "سائق مستقل"
+
+# Performance Scores
+msgid "Excellent (>95%)"
+msgstr "ممتاز (>95%)"
+
+msgid "Good (85-95%)"
+msgstr "جيد (85-95%)"
+
+msgid "Average (75-85%)"
+msgstr "متوسط (75-85%)"
+
+msgid "Poor (<75%)"
+msgstr "ضعيف (<75%)"
+
+# Placeholders
+msgid "Additional notes..."
+msgstr "ملاحظات إضافية..."
+
+msgid "Route notes..."
+msgstr "ملاحظات المسار..."
+
+msgid "Incident Title"
+msgstr "عنوان الحادث"
+
+msgid "Detailed description of the incident..."
+msgstr "وصف تفصيلي للحادث..."
+
+msgid "Resolution notes..."
+msgstr "ملاحظات الحل..."
+
+msgid "Describe actions taken..."
+msgstr "وصف الإجراءات المتخذة..."
+
+msgid "Preventive measures..."
+msgstr "الإجراءات الوقائية..."
+
+msgid "Hub Name"
+msgstr "اسم المحطة"
+
+# Additional Fields
+msgid "Customer"
+msgstr "العميل"
+
+msgid "Company"
+msgstr "الشركة"
+
+msgid "Currency"
+msgstr "العملة"
+
+msgid "Scheduled"
+msgstr "مجدول"
+
+msgid "Actual"
+msgstr "فعلي"
+
+msgid "Action Taken"
+msgstr "الإجراء المتخذ"
+
+msgid "Preventive Measures"
+msgstr "الإجراءات الوقائية"
+
+msgid "Deliveries"
+msgstr "التسليمات"
+
+msgid "Parcels in Hub"
+msgstr "الطرود في المحطة"
+
+msgid "Hub Jobs"
+msgstr "مهام المحطة"
+
+msgid "GPS Logs"
+msgstr "سجلات GPS"
+
+msgid "Route Jobs"
+msgstr "مهام المسار"
+
+# Additional States
+msgid "Terminated"
+msgstr "منتهي"
+
+# Additional Terms
+msgid "Pickup Phone"
+msgstr "هاتف الاستلام"
+
+msgid "Delivery Phone"
+msgstr "هاتف التسليم"
+
+msgid "Pickup Contact"
+msgstr "جهة اتصال الاستلام"
+
+msgid "Delivery Contact"
+msgstr "جهة اتصال التسليم"
+
+msgid "Pickup Latitude"
+msgstr "خط عرض الاستلام"
+
+msgid "Pickup Longitude"
+msgstr "خط طول الاستلام"
+
+msgid "Delivery Latitude"
+msgstr "خط عرض التسليم"
+
+msgid "Delivery Longitude"
+msgstr "خط طول التسليم"
+
+msgid "Scheduled Pickup Date"
+msgstr "تاريخ الاستلام المجدول"
+
+msgid "Scheduled Delivery Date"
+msgstr "تاريخ التسليم المجدول"
+
+msgid "Actual Pickup Date"
+msgstr "تاريخ الاستلام الفعلي"
+
+msgid "Actual Delivery Date"
+msgstr "تاريخ التسليم الفعلي"
+
+msgid "Parcel Count"
+msgstr "عدد الطرود"
+
+msgid "Create Pickup Job"
+msgstr "إنشاء مهمة استلام"
+
+msgid "Create Delivery Job"
+msgstr "إنشاء مهمة تسليم"
+
+msgid "Additional notes for the driver..."
+msgstr "ملاحظات إضافية للسائق..."
+
+msgid "Scheduled Pickup"
+msgstr "الاستلام المجدول"
+
+msgid "Scheduled Delivery"
+msgstr "التسليم المجدول"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Total Expected"
+msgstr "المجموع المتوقع"
+
+msgid "Total Collected"
+msgstr "المجموع المحصل"
+
+msgid "Payment Analysis"
+msgstr "تحليل الدفع"
+
+msgid "Collected"
+msgstr "محصل"
+
+msgid "Cash"
+msgstr "نقدي"
+
+msgid "Opening time must be between 0 and 24"
+msgstr "وقت الفتح يجب أن يكون بين 0 و 24"
+
+msgid "Closing time must be between 0 and 24"
+msgstr "وقت الإغلاق يجب أن يكون بين 0 و 24"
+
+msgid "Opening time must be before closing time"
+msgstr "وقت الفتح يجب أن يكون قبل وقت الإغلاق"
+
+msgid "Max capacity cannot be negative"
+msgstr "السعة القصوى لا يمكن أن تكون سالبة"
+
+msgid "Heading must be between 0 and 360 degrees"
+msgstr "الاتجاه يجب أن يكون بين 0 و 360 درجة"
+
+msgid "Speed cannot be negative"
+msgstr "السرعة لا يمكن أن تكون سالبة"
+
+msgid "Battery level must be between 0 and 100"
+msgstr "مستوى البطارية يجب أن يكون بين 0 و 100"
+
+msgid "Pickup latitude must be between -90 and 90"
+msgstr "خط عرض الاستلام يجب أن يكون بين -90 و 90"
+
+msgid "Pickup longitude must be between -180 and 180"
+msgstr "خط طول الاستلام يجب أن يكون بين -180 و 180"
+
+msgid "Delivery latitude must be between -90 and 90"
+msgstr "خط عرض التسليم يجب أن يكون بين -90 و 90"
+
+msgid "Delivery longitude must be between -180 and 180"
+msgstr "خط طول التسليم يجب أن يكون بين -180 و 180"
+
+msgid "Performance: %.2f%%"
+msgstr "الأداء: %.2f%%"
+
+msgid "Driver: Own Jobs Only"
+msgstr "السائق: مهامه فقط"
+
+msgid "Driver: Related Service Requests"
+msgstr "السائق: طلبات الخدمة ذات الصلة"
+
+msgid "Driver: Related Parcels"
+msgstr "السائق: الطرود ذات الصلة"
+
+msgid "Driver: Own Route Plans"
+msgstr "السائق: خطط الطرق الخاصة به"
+
+msgid "Driver: Own Payment Records"
+msgstr "السائق: سجلات الدفع الخاصة به"
+
+msgid "Dispatcher: Full Read/Write Access"
+msgstr "المشغل: وصول كامل للقراءة/الكتابة"
+
+msgid "Manager: Full Access"
+msgstr "المدير: وصول كامل"
+
+msgid "Create your first service request!"
+msgstr "أنشئ أول طلب خدمة!"
+
+msgid "Service requests manage pickup and delivery operations."
+msgstr "طلبات الخدمة تدير عمليات الاستلام والتسليم."
+

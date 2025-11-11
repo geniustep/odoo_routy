@@ -37,7 +37,6 @@ class Linehaul(models.Model):
     driver_id = fields.Many2one(
         'res.users',
         string='Driver',
-        domain="[('groups_id', 'in', [%(routy.group_driver)d])]",
         tracking=True
     )
     vehicle_id = fields.Many2one(

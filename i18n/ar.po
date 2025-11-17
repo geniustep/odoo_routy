@@ -1,0 +1,725 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * routy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-15 10:00:00\n"
+"PO-Revision-Date: 2024-01-15 10:00:00\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#. module: routy
+#: model:ir.module.category,name:routy.module_category_routy
+msgid "Routy"
+msgstr "روتي"
+
+#. module: routy
+#: model:ir.module.category,description:routy.module_category_routy
+msgid "Delivery Management System"
+msgstr "نظام إدارة التوصيل"
+
+#. module: routy
+#: model:res.groups,name:routy.group_driver
+msgid "Driver"
+msgstr "سائق"
+
+#. module: routy
+#: model:res.groups,name:routy.group_dispatcher
+msgid "Dispatcher"
+msgstr "موزع المهام"
+
+#. module: routy
+#: model:res.groups,name:routy.group_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_service_request
+msgid "Service Request"
+msgstr "طلب خدمة"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_parcel
+msgid "Parcel/Package"
+msgstr "طرد/شحنة"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_job
+msgid "Driver Job/Task"
+msgstr "مهمة السائق"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_hub
+msgid "Distribution Hub/Center"
+msgstr "مركز التوزيع"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_linehaul
+msgid "Linehaul - Inter-city Transport"
+msgstr "نقل بين المدن"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_route_plan
+msgid "Route Plan"
+msgstr "خطة مسار"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_payment_record
+msgid "Payment Record"
+msgstr "سجل دفع"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_gps_log
+msgid "GPS Log"
+msgstr "سجل GPS"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_partner_contract
+msgid "Partner Contract"
+msgstr "عقد شريك"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_incident
+msgid "Incident"
+msgstr "حادثة"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_root
+msgid "Routy"
+msgstr "روتي"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_operations
+msgid "Operations"
+msgstr "العمليات"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_service_requests
+msgid "Service Requests"
+msgstr "طلبات الخدمة"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_parcels
+msgid "Parcels"
+msgstr "الطرود"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_jobs
+msgid "Jobs"
+msgstr "المهام"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_logistics
+msgid "Logistics"
+msgstr "اللوجستيات"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_hubs
+msgid "Hubs"
+msgstr "المراكز"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_linehauls
+msgid "Linehauls"
+msgstr "النقل بين المدن"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_route_plans
+msgid "Route Plans"
+msgstr "خطط المسارات"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_support
+msgid "Support"
+msgstr "الدعم"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_payments
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_contracts
+msgid "Contracts"
+msgstr "العقود"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_incidents
+msgid "Incidents"
+msgstr "الحوادث"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_configuration
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Request Number"
+msgstr "رقم الطلب"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Customer/Sender"
+msgstr "العميل/المرسل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Service Type"
+msgstr "نوع الخدمة"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Local Delivery"
+msgstr "توصيل محلي"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Express"
+msgstr "سريع"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Scheduled"
+msgstr "مجدول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Information"
+msgstr "معلومات الاستلام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Address"
+msgstr "عنوان الاستلام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Contact Name"
+msgstr "اسم جهة الاتصال للاستلام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Phone"
+msgstr "هاتف الاستلام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Information"
+msgstr "معلومات التوصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Address"
+msgstr "عنوان التوصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Contact Name"
+msgstr "اسم جهة الاتصال للتوصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Phone"
+msgstr "هاتف التوصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Financial Information"
+msgstr "المعلومات المالية"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Service Fee"
+msgstr "رسوم الخدمة"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "COD Amount"
+msgstr "مبلغ الدفع عند الاستلام"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Assigned"
+msgstr "معين"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Delivered"
+msgstr "تم التسليم"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Assign Driver"
+msgstr "تعيين سائق"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Tracking Number"
+msgstr "رقم التتبع"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Content Description"
+msgstr "وصف المحتوى"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Weight (kg)"
+msgstr "الوزن (كجم)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Dimensions"
+msgstr "الأبعاد"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Length (cm)"
+msgstr "الطول (سم)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Width (cm)"
+msgstr "العرض (سم)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Height (cm)"
+msgstr "الارتفاع (سم)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Volume (cm³)"
+msgstr "الحجم (سم³)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Declared Value"
+msgstr "القيمة المصرح بها"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Picked Up"
+msgstr "تم الاستلام"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "In Transit"
+msgstr "في الطريق"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Out for Delivery"
+msgstr "جاهز للتسليم"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Failed"
+msgstr "فشل"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Returned"
+msgstr "تم الإرجاع"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Proof of Delivery"
+msgstr "إثبات التسليم"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Signature"
+msgstr "التوقيع"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Delivery Photo"
+msgstr "صورة التسليم"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Recipient Name"
+msgstr "اسم المستلم"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Delivery Notes"
+msgstr "ملاحظات التسليم"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Job Reference"
+msgstr "مرجع المهمة"
+
+#. module: routy
+#: selection:routy.job,job_type:0
+msgid "Pickup"
+msgstr "استلام"
+
+#. module: routy
+#: selection:routy.job,job_type:0
+msgid "Delivery"
+msgstr "توصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Assigned Driver"
+msgstr "السائق المعين"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Location Address"
+msgstr "عنوان الموقع"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Contact Phone"
+msgstr "هاتف الاتصال"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Scheduled Time"
+msgstr "الوقت المجدول"
+
+#. module: routy
+#: selection:routy.job,state:0
+msgid "Accepted"
+msgstr "مقبول"
+
+#. module: routy
+#: selection:routy.job,state:0
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Accept"
+msgstr "قبول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Start"
+msgstr "بدء"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Complete"
+msgstr "إتمام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Mark as Failed"
+msgstr "وضع علامة فشل"
+
+#. module: routy
+#: code:addons/routy/models/service_request.py:0
+#, python-format
+msgid "Cannot confirm a service request without parcels."
+msgstr "لا يمكن تأكيد طلب خدمة بدون طرود."
+
+#. module: routy
+#: code:addons/routy/models/service_request.py:0
+#, python-format
+msgid "Cannot cancel a delivered service request."
+msgstr "لا يمكن إلغاء طلب خدمة تم تسليمه."
+
+#. module: routy
+#: code:addons/routy/models/parcel.py:0
+#, python-format
+msgid "Only pending parcels can be marked as picked."
+msgstr "فقط الطرود قيد الانتظار يمكن وضع علامة استلام عليها."
+
+#. module: routy
+#: code:addons/routy/models/parcel.py:0
+#, python-format
+msgid "Please provide proof of delivery (signature or photo)."
+msgstr "الرجاء تقديم إثبات التسليم (توقيع أو صورة)."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Only assigned jobs can be accepted."
+msgstr "فقط المهام المعينة يمكن قبولها."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Only in-progress jobs can be completed."
+msgstr "فقط المهام قيد التنفيذ يمكن إكمالها."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Please provide proof of delivery for all parcels before completing the job."
+msgstr "الرجاء تقديم إثبات التسليم لجميع الطرود قبل إكمال المهمة."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Please provide a failure reason."
+msgstr "الرجاء تقديم سبب الفشل."
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Hub Name"
+msgstr "اسم المركز"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Hub Code"
+msgstr "رمز المركز"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Main Hub"
+msgstr "مركز رئيسي"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Distribution Center"
+msgstr "مركز توزيع"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Micro Hub"
+msgstr "مركز صغير"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Address"
+msgstr "العنوان"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "City"
+msgstr "المدينة"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "State"
+msgstr "المحافظة"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Country"
+msgstr "البلد"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Linehaul Reference"
+msgstr "مرجع النقل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Departure Hub"
+msgstr "مركز المغادرة"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Arrival Hub"
+msgstr "مركز الوصول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Scheduled Departure"
+msgstr "موعد المغادرة المجدول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Scheduled Arrival"
+msgstr "موعد الوصول المجدول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_payment_record_form
+msgid "Payment Record"
+msgstr "سجل الدفع"
+
+#. module: routy
+#: selection:routy.payment_record,payment_type:0
+msgid "COD Collection"
+msgstr "تحصيل نقدي عند التسليم"
+
+#. module: routy
+#: selection:routy.payment_record,payment_type:0
+msgid "Service Fee"
+msgstr "رسوم الخدمة"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Cash"
+msgstr "نقدي"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Card"
+msgstr "بطاقة"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Incident Title"
+msgstr "عنوان الحادثة"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Delay"
+msgstr "تأخير"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Damage"
+msgstr "ضرر"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Lost"
+msgstr "مفقود"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Wrong Address"
+msgstr "عنوان خاطئ"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Customer Issue"
+msgstr "مشكلة عميل"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Low"
+msgstr "منخفض"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Medium"
+msgstr "متوسط"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "High"
+msgstr "عالي"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Critical"
+msgstr "حرج"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "New"
+msgstr "جديد"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "Resolved"
+msgstr "تم الحل"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Resolution"
+msgstr "الحل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Preventive Measures"
+msgstr "الإجراءات الوقائية"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Assign Driver to Service Request"
+msgstr "تعيين سائق لطلب الخدمة"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Scheduled Pickup"
+msgstr "موعد الاستلام المجدول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Scheduled Delivery"
+msgstr "موعد التسليم المجدول"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Create Pickup Job"
+msgstr "إنشاء مهمة استلام"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Create Delivery Job"
+msgstr "إنشاء مهمة توصيل"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: routy
+#: code:addons/routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Success"
+msgstr "نجح"
+
+#. module: routy
+#: code:addons/routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Driver %s has been assigned successfully!"
+msgstr "تم تعيين السائق %s بنجاح!"

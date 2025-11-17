@@ -41,3 +41,5 @@ access_incident_manager,routy.incident.manager,model_routy_incident,group_manage
 access_incident_tag_user,routy.incident.tag.user,model_routy_incident_tag,base.group_user,1,0,0,0
 access_incident_tag_dispatcher,routy.incident.tag.dispatcher,model_routy_incident_tag,group_dispatcher,1,1,1,0
 access_incident_tag_manager,routy.incident.tag.manager,model_routy_incident_tag,group_manager,1,1,1,1
+access_dashboard_dispatcher,routy.dashboard.dispatcher,model_routy_dashboard,group_dispatcher,1,0,0,0
+access_dashboard_manager,routy.dashboard.manager,model_routy_dashboard,group_manager,1,0,0,0

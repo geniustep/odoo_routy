@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Report Action -->
+    <record id="action_report_parcel_delivery_note" model="ir.actions.report">
+        <field name="name">Delivery Note</field>
+        <field name="model">routy.parcel</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">routy.report_parcel_delivery_note_document</field>
+        <field name="report_file">routy.report_parcel_delivery_note_document</field>
+        <field name="binding_model_id" ref="model_routy_parcel"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Delivery Note - %s' % (object.name)</field>
+    </record>
+
+    <!-- Report Template -->
+    <template id="report_parcel_delivery_note_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+
+                        <!-- Header -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <h2>
+                                    <span t-if="doc.state == 'delivered'" class="badge bg-success">Delivered</span>
+                                    <span t-elif="doc.state == 'out_for_delivery'" class="badge bg-info">Out for Delivery</span>
+                                    <span t-elif="doc.state == 'in_transit'" class="badge bg-warning">In Transit</span>
+                                    <span t-else="" class="badge bg-secondary"><t t-esc="doc.state.title()"/></span>
+                                </h2>
+                                <h3 class="mt-2">Delivery Note</h3>
+                            </div>
+                            <div class="col-6 text-end">
+                                <!-- QR Code for tracking -->
+                                <img t-att-src="'/report/barcode/?type=QR&amp;value=%s&amp;width=150&amp;height=150' % doc.name"
+                                     style="width: 150px; height: 150px;"/>
+                            </div>
+                        </div>
+
+                        <!-- Tracking Information -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <h4 class="mb-0">Tracking Information</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p><strong>Tracking Number:</strong></p>
+                                                <h4><t t-esc="doc.name"/></h4>
+                                            </div>
+                                            <div class="col-6">
+                                                <p><strong>Service Request:</strong></p>
+                                                <h5><t t-esc="doc.service_request_id.name"/></h5>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12">
+                                                <!-- Barcode -->
+                                                <img t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=600&amp;height=100&amp;humanreadable=1' % doc.name"
+                                                     style="width: 100%; max-width: 600px;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Information -->
+                        <div class="row mb-4">
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0">Sender Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong><t t-esc="doc.customer_id.name"/></strong></p>
+                                        <p t-if="doc.customer_id.email">
+                                            <i class="fa fa-envelope"/> <t t-esc="doc.customer_id.email"/>
+                                        </p>
+                                        <p t-if="doc.customer_id.phone">
+                                            <i class="fa fa-phone"/> <t t-esc="doc.customer_id.phone"/>
+                                        </p>
+                                        <p t-if="doc.service_request_id.pickup_address">
+                                            <i class="fa fa-map-marker"/> <t t-esc="doc.service_request_id.pickup_address"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">Recipient Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p t-if="doc.recipient_name">
+                                            <strong><t t-esc="doc.recipient_name"/></strong>
+                                        </p>
+                                        <p t-if="doc.service_request_id.delivery_contact">
+                                            <strong><t t-esc="doc.service_request_id.delivery_contact"/></strong>
+                                        </p>
+                                        <p t-if="doc.service_request_id.delivery_phone">
+                                            <i class="fa fa-phone"/> <t t-esc="doc.service_request_id.delivery_phone"/>
+                                        </p>
+                                        <p t-if="doc.service_request_id.delivery_address">
+                                            <i class="fa fa-map-marker"/> <t t-esc="doc.service_request_id.delivery_address"/>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Parcel Details -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-dark text-white">
+                                        <h5 class="mb-0">Parcel Details</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-sm">
+                                            <tr>
+                                                <th width="30%">Description:</th>
+                                                <td><t t-esc="doc.description or 'N/A'"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Weight:</th>
+                                                <td><t t-esc="'%.2f kg' % doc.weight if doc.weight else 'N/A'"/></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Dimensions:</th>
+                                                <td>
+                                                    <t t-if="doc.length and doc.width and doc.height">
+                                                        <t t-esc="'%.1f x %.1f x %.1f cm' % (doc.length, doc.width, doc.height)"/>
+                                                        (Volume: <t t-esc="'%.2f cm³' % doc.volume"/>)
+                                                    </t>
+                                                    <t t-else="">N/A</t>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Declared Value:</th>
+                                                <td>
+                                                    <t t-if="doc.declared_value">
+                                                        <t t-esc="'%.2f' % doc.declared_value"/>
+                                                        <t t-esc="doc.currency_id.symbol"/>
+                                                    </t>
+                                                    <t t-else="">N/A</t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-warning">
+                                        <h5 class="mb-0">Delivery Information</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-sm">
+                                            <tr>
+                                                <th width="30%">Status:</th>
+                                                <td><strong><t t-esc="dict(doc._fields['state'].selection).get(doc.state)"/></strong></td>
+                                            </tr>
+                                            <tr t-if="doc.assigned_driver_id">
+                                                <th>Assigned Driver:</th>
+                                                <td><t t-esc="doc.assigned_driver_id.name"/></td>
+                                            </tr>
+                                            <tr t-if="doc.picked_at">
+                                                <th>Picked Up At:</th>
+                                                <td><t t-esc="doc.picked_at.strftime('%Y-%m-%d %H:%M')"/></td>
+                                            </tr>
+                                            <tr t-if="doc.delivered_at">
+                                                <th>Delivered At:</th>
+                                                <td><t t-esc="doc.delivered_at.strftime('%Y-%m-%d %H:%M')"/></td>
+                                            </tr>
+                                            <tr t-if="doc.pod_notes">
+                                                <th>Delivery Notes:</th>
+                                                <td><t t-esc="doc.pod_notes"/></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proof of Delivery Section (if delivered) -->
+                        <div class="row mb-4" t-if="doc.state == 'delivered'">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0">Proof of Delivery</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-6" t-if="doc.pod_signature">
+                                                <p><strong>Signature:</strong></p>
+                                                <img t-att-src="'data:image/png;base64,%s' % doc.pod_signature.decode('utf-8')"
+                                                     style="max-width: 100%; max-height: 200px; border: 1px solid #ddd;"/>
+                                            </div>
+                                            <div class="col-6" t-if="doc.pod_photo">
+                                                <p><strong>Delivery Photo:</strong></p>
+                                                <img t-att-src="'data:image/png;base64,%s' % doc.pod_photo.decode('utf-8')"
+                                                     style="max-width: 100%; max-height: 200px; border: 1px solid #ddd;"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3" t-if="doc.recipient_name">
+                                            <div class="col-12">
+                                                <p><strong>Received by:</strong> <t t-esc="doc.recipient_name"/></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Financial Information (if COD) -->
+                        <div class="row mb-4" t-if="doc.service_request_id.cod_amount > 0">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header bg-danger text-white">
+                                        <h5 class="mb-0">Cash on Delivery (COD)</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-sm">
+                                            <tr>
+                                                <th width="30%">Service Fee:</th>
+                                                <td>
+                                                    <t t-esc="'%.2f' % doc.service_request_id.service_fee"/>
+                                                    <t t-esc="doc.currency_id.symbol"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>COD Amount:</th>
+                                                <td>
+                                                    <strong style="font-size: 1.2em;">
+                                                        <t t-esc="'%.2f' % doc.service_request_id.cod_amount"/>
+                                                        <t t-esc="doc.currency_id.symbol"/>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>Total to Collect:</th>
+                                                <td>
+                                                    <strong style="font-size: 1.3em; color: red;">
+                                                        <t t-esc="'%.2f' % (doc.service_request_id.service_fee + doc.service_request_id.cod_amount)"/>
+                                                        <t t-esc="doc.currency_id.symbol"/>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="row mt-5">
+                            <div class="col-12 text-center">
+                                <hr/>
+                                <p class="text-muted">
+                                    <small>
+                                        This is an automatically generated delivery note.
+                                        For any inquiries, please contact customer service.
+                                    </small>
+                                </p>
+                                <p class="text-muted">
+                                    <small>
+                                        Generated on: <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')"/>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

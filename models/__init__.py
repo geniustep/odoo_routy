@@ -10,3 +10,5 @@ from . import payment_record
 from . import gps_log
 from . import partner_contract
 from . import incident
+from . import dashboard
+from . import cron_methods

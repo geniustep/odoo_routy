@@ -1,0 +1,725 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * routy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-15 10:00:00\n"
+"PO-Revision-Date: 2024-01-15 10:00:00\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. module: routy
+#: model:ir.module.category,name:routy.module_category_routy
+msgid "Routy"
+msgstr "Routy"
+
+#. module: routy
+#: model:ir.module.category,description:routy.module_category_routy
+msgid "Delivery Management System"
+msgstr "Système de Gestion de Livraison"
+
+#. module: routy
+#: model:res.groups,name:routy.group_driver
+msgid "Driver"
+msgstr "Chauffeur"
+
+#. module: routy
+#: model:res.groups,name:routy.group_dispatcher
+msgid "Dispatcher"
+msgstr "Répartiteur"
+
+#. module: routy
+#: model:res.groups,name:routy.group_manager
+msgid "Manager"
+msgstr "Gestionnaire"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_service_request
+msgid "Service Request"
+msgstr "Demande de Service"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_parcel
+msgid "Parcel/Package"
+msgstr "Colis/Paquet"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_job
+msgid "Driver Job/Task"
+msgstr "Tâche du Chauffeur"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_hub
+msgid "Distribution Hub/Center"
+msgstr "Centre de Distribution"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_linehaul
+msgid "Linehaul - Inter-city Transport"
+msgstr "Transport Interurbain"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_route_plan
+msgid "Route Plan"
+msgstr "Plan de Route"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_payment_record
+msgid "Payment Record"
+msgstr "Enregistrement de Paiement"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_gps_log
+msgid "GPS Log"
+msgstr "Journal GPS"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_partner_contract
+msgid "Partner Contract"
+msgstr "Contrat Partenaire"
+
+#. module: routy
+#: model:ir.model,name:routy.model_routy_incident
+msgid "Incident"
+msgstr "Incident"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_root
+msgid "Routy"
+msgstr "Routy"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_operations
+msgid "Operations"
+msgstr "Opérations"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_service_requests
+msgid "Service Requests"
+msgstr "Demandes de Service"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_parcels
+msgid "Parcels"
+msgstr "Colis"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_jobs
+msgid "Jobs"
+msgstr "Tâches"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_logistics
+msgid "Logistics"
+msgstr "Logistique"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_hubs
+msgid "Hubs"
+msgstr "Centres"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_linehauls
+msgid "Linehauls"
+msgstr "Transports Interurbains"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_route_plans
+msgid "Route Plans"
+msgstr "Plans de Route"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_support
+msgid "Support"
+msgstr "Support"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_payments
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_contracts
+msgid "Contracts"
+msgstr "Contrats"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_incidents
+msgid "Incidents"
+msgstr "Incidents"
+
+#. module: routy
+#: model:ir.ui.menu,name:routy.menu_routy_configuration
+msgid "Configuration"
+msgstr "Configuration"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Request Number"
+msgstr "Numéro de Demande"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Customer/Sender"
+msgstr "Client/Expéditeur"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Service Type"
+msgstr "Type de Service"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Local Delivery"
+msgstr "Livraison Locale"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Express"
+msgstr "Express"
+
+#. module: routy
+#: selection:routy.service_request,service_type:0
+msgid "Scheduled"
+msgstr "Planifié"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Information"
+msgstr "Informations d'Enlèvement"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Address"
+msgstr "Adresse d'Enlèvement"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Contact Name"
+msgstr "Nom du Contact d'Enlèvement"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Pickup Phone"
+msgstr "Téléphone d'Enlèvement"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Information"
+msgstr "Informations de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Address"
+msgstr "Adresse de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Contact Name"
+msgstr "Nom du Contact de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Delivery Phone"
+msgstr "Téléphone de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Financial Information"
+msgstr "Informations Financières"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Service Fee"
+msgstr "Frais de Service"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "COD Amount"
+msgstr "Montant à la Livraison"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Confirmed"
+msgstr "Confirmé"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Assigned"
+msgstr "Assigné"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "In Progress"
+msgstr "En Cours"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Delivered"
+msgstr "Livré"
+
+#. module: routy
+#: selection:routy.service_request,state:0
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Assign Driver"
+msgstr "Assigner un Chauffeur"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_service_request_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Tracking Number"
+msgstr "Numéro de Suivi"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Content Description"
+msgstr "Description du Contenu"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Weight (kg)"
+msgstr "Poids (kg)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Dimensions"
+msgstr "Dimensions"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Length (cm)"
+msgstr "Longueur (cm)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Width (cm)"
+msgstr "Largeur (cm)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Height (cm)"
+msgstr "Hauteur (cm)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Volume (cm³)"
+msgstr "Volume (cm³)"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Declared Value"
+msgstr "Valeur Déclarée"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Pending"
+msgstr "En Attente"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Picked Up"
+msgstr "Collecté"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "In Transit"
+msgstr "En Transit"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Out for Delivery"
+msgstr "En Cours de Livraison"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Failed"
+msgstr "Échoué"
+
+#. module: routy
+#: selection:routy.parcel,state:0
+msgid "Returned"
+msgstr "Retourné"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Proof of Delivery"
+msgstr "Preuve de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Signature"
+msgstr "Signature"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Delivery Photo"
+msgstr "Photo de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Recipient Name"
+msgstr "Nom du Destinataire"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_parcel_form
+msgid "Delivery Notes"
+msgstr "Notes de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Job Reference"
+msgstr "Référence de Tâche"
+
+#. module: routy
+#: selection:routy.job,job_type:0
+msgid "Pickup"
+msgstr "Enlèvement"
+
+#. module: routy
+#: selection:routy.job,job_type:0
+msgid "Delivery"
+msgstr "Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Assigned Driver"
+msgstr "Chauffeur Assigné"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Location Address"
+msgstr "Adresse du Lieu"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Contact Phone"
+msgstr "Téléphone de Contact"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Scheduled Time"
+msgstr "Heure Prévue"
+
+#. module: routy
+#: selection:routy.job,state:0
+msgid "Accepted"
+msgstr "Accepté"
+
+#. module: routy
+#: selection:routy.job,state:0
+msgid "Completed"
+msgstr "Terminé"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Accept"
+msgstr "Accepter"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Start"
+msgstr "Démarrer"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Complete"
+msgstr "Terminer"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_job_form
+msgid "Mark as Failed"
+msgstr "Marquer comme Échoué"
+
+#. module: routy
+#: code:addons/routy/models/service_request.py:0
+#, python-format
+msgid "Cannot confirm a service request without parcels."
+msgstr "Impossible de confirmer une demande sans colis."
+
+#. module: routy
+#: code:addons/routy/models/service_request.py:0
+#, python-format
+msgid "Cannot cancel a delivered service request."
+msgstr "Impossible d'annuler une demande livrée."
+
+#. module: routy
+#: code:addons/routy/models/parcel.py:0
+#, python-format
+msgid "Only pending parcels can be marked as picked."
+msgstr "Seuls les colis en attente peuvent être marqués comme collectés."
+
+#. module: routy
+#: code:addons/routy/models/parcel.py:0
+#, python-format
+msgid "Please provide proof of delivery (signature or photo)."
+msgstr "Veuillez fournir une preuve de livraison (signature ou photo)."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Only assigned jobs can be accepted."
+msgstr "Seules les tâches assignées peuvent être acceptées."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Only in-progress jobs can be completed."
+msgstr "Seules les tâches en cours peuvent être terminées."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Please provide proof of delivery for all parcels before completing the job."
+msgstr "Veuillez fournir une preuve de livraison pour tous les colis avant de terminer la tâche."
+
+#. module: routy
+#: code:addons/routy/models/job.py:0
+#, python-format
+msgid "Please provide a failure reason."
+msgstr "Veuillez indiquer une raison d'échec."
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Hub Name"
+msgstr "Nom du Centre"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Hub Code"
+msgstr "Code du Centre"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Main Hub"
+msgstr "Centre Principal"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Distribution Center"
+msgstr "Centre de Distribution"
+
+#. module: routy
+#: selection:routy.hub,hub_type:0
+msgid "Micro Hub"
+msgstr "Micro Centre"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Address"
+msgstr "Adresse"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "City"
+msgstr "Ville"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "State"
+msgstr "État"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_hub_form
+msgid "Country"
+msgstr "Pays"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Linehaul Reference"
+msgstr "Référence de Transport"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Departure Hub"
+msgstr "Centre de Départ"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Arrival Hub"
+msgstr "Centre d'Arrivée"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Scheduled Departure"
+msgstr "Départ Prévu"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_linehaul_form
+msgid "Scheduled Arrival"
+msgstr "Arrivée Prévue"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_payment_record_form
+msgid "Payment Record"
+msgstr "Enregistrement de Paiement"
+
+#. module: routy
+#: selection:routy.payment_record,payment_type:0
+msgid "COD Collection"
+msgstr "Collecte à la Livraison"
+
+#. module: routy
+#: selection:routy.payment_record,payment_type:0
+msgid "Service Fee"
+msgstr "Frais de Service"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Cash"
+msgstr "Espèces"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Card"
+msgstr "Carte"
+
+#. module: routy
+#: selection:routy.payment_record,payment_method:0
+msgid "Bank Transfer"
+msgstr "Virement Bancaire"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Incident Title"
+msgstr "Titre de l'Incident"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Delay"
+msgstr "Retard"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Damage"
+msgstr "Dommage"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Lost"
+msgstr "Perdu"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Wrong Address"
+msgstr "Mauvaise Adresse"
+
+#. module: routy
+#: selection:routy.incident,incident_type:0
+msgid "Customer Issue"
+msgstr "Problème Client"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Low"
+msgstr "Faible"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Medium"
+msgstr "Moyen"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "High"
+msgstr "Élevé"
+
+#. module: routy
+#: selection:routy.incident,priority:0
+msgid "Critical"
+msgstr "Critique"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "New"
+msgstr "Nouveau"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "Resolved"
+msgstr "Résolu"
+
+#. module: routy
+#: selection:routy.incident,state:0
+msgid "Closed"
+msgstr "Fermé"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Description"
+msgstr "Description"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Resolution"
+msgstr "Résolution"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.view_incident_form
+msgid "Preventive Measures"
+msgstr "Mesures Préventives"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Assign Driver to Service Request"
+msgstr "Assigner un Chauffeur à la Demande"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Scheduled Pickup"
+msgstr "Enlèvement Prévu"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Scheduled Delivery"
+msgstr "Livraison Prévue"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Create Pickup Job"
+msgstr "Créer une Tâche d'Enlèvement"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Create Delivery Job"
+msgstr "Créer une Tâche de Livraison"
+
+#. module: routy
+#: model_terms:ir.ui.view,arch_db:routy.assign_driver_wizard_form
+msgid "Notes"
+msgstr "Notes"
+
+#. module: routy
+#: code:addons/routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Success"
+msgstr "Succès"
+
+#. module: routy
+#: code:addons/routy/wizard/assign_driver_wizard.py:0
+#, python-format
+msgid "Driver %s has been assigned successfully!"
+msgstr "Le chauffeur %s a été assigné avec succès!"

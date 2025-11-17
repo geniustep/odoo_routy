@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Demo Users (Drivers) -->
+        <record id="demo_driver_1" model="res.users">
+            <field name="name">Ahmed Hassan</field>
+            <field name="login">ahmed.driver</field>
+            <field name="email">ahmed@routy-demo.com</field>
+            <field name="groups_id" eval="[(4, ref('routy.group_driver'))]"/>
+        </record>
+
+        <record id="demo_driver_2" model="res.users">
+            <field name="name">Mohamed Ali</field>
+            <field name="login">mohamed.driver</field>
+            <field name="email">mohamed@routy-demo.com</field>
+            <field name="groups_id" eval="[(4, ref('routy.group_driver'))]"/>
+        </record>
+
+        <record id="demo_driver_3" model="res.users">
+            <field name="name">Khaled Ibrahim</field>
+            <field name="login">khaled.driver</field>
+            <field name="email">khaled@routy-demo.com</field>
+            <field name="groups_id" eval="[(4, ref('routy.group_driver'))]"/>
+        </record>
+
+        <!-- Demo Customers -->
+        <record id="demo_customer_1" model="res.partner">
+            <field name="name">Electronics Shop Cairo</field>
+            <field name="email">electronics@cairo-shop.com</field>
+            <field name="phone">+201234567890</field>
+            <field name="street">123 Tahrir Square</field>
+            <field name="city">Cairo</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+
+        <record id="demo_customer_2" model="res.partner">
+            <field name="name">Fashion Store Alex</field>
+            <field name="email">fashion@alex-store.com</field>
+            <field name="phone">+201234567891</field>
+            <field name="street">456 Corniche Road</field>
+            <field name="city">Alexandria</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+
+        <record id="demo_customer_3" model="res.partner">
+            <field name="name">Bookstore Giza</field>
+            <field name="email">books@giza-store.com</field>
+            <field name="phone">+201234567892</field>
+            <field name="street">789 Pyramids Street</field>
+            <field name="city">Giza</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+
+        <record id="demo_customer_4" model="res.partner">
+            <field name="name">Pharmacy Nasr City</field>
+            <field name="email">pharmacy@nasr-city.com</field>
+            <field name="phone">+201234567893</field>
+            <field name="street">321 Abbas El-Akkad</field>
+            <field name="city">Cairo</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+
+        <record id="demo_customer_5" model="res.partner">
+            <field name="name">Restaurant Maadi</field>
+            <field name="email">restaurant@maadi.com</field>
+            <field name="phone">+201234567894</field>
+            <field name="street">159 Road 9</field>
+            <field name="city">Cairo</field>
+            <field name="country_id" ref="base.eg"/>
+        </record>
+
+        <!-- Demo Hubs -->
+        <record id="demo_hub_cairo_main" model="routy.hub">
+            <field name="name">Main Hub Cairo</field>
+            <field name="code">HUB-CAI-001</field>
+            <field name="hub_type">main</field>
+            <field name="address">Downtown Cairo Distribution Center, 10 Ramses Street</field>
+            <field name="city">Cairo</field>
+            <field name="country_id" ref="base.eg"/>
+            <field name="latitude">30.0444</field>
+            <field name="longitude">31.2357</field>
+            <field name="capacity">1000</field>
+            <field name="manager_id" ref="base.user_admin"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="demo_hub_alex" model="routy.hub">
+            <field name="name">Distribution Center Alexandria</field>
+            <field name="code">HUB-ALX-001</field>
+            <field name="hub_type">distribution</field>
+            <field name="address">Alexandria Port Area, 25 El-Geish Road</field>
+            <field name="city">Alexandria</field>
+            <field name="country_id" ref="base.eg"/>
+            <field name="latitude">31.2001</field>
+            <field name="longitude">29.9187</field>
+            <field name="capacity">500</field>
+            <field name="manager_id" ref="base.user_admin"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="demo_hub_giza" model="routy.hub">
+            <field name="name">Micro Hub Giza</field>
+            <field name="code">HUB-GIZ-001</field>
+            <field name="hub_type">micro</field>
+            <field name="address">Giza Square, 5 Pyramids Avenue</field>
+            <field name="city">Giza</field>
+            <field name="country_id" ref="base.eg"/>
+            <field name="latitude">30.0131</field>
+            <field name="longitude">31.2089</field>
+            <field name="capacity">200</field>
+            <field name="manager_id" ref="base.user_admin"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <!-- Demo Service Requests -->
+        <record id="demo_service_request_1" model="routy.service_request">
+            <field name="customer_id" ref="demo_customer_1"/>
+            <field name="service_type">express</field>
+            <field name="pickup_address">123 Tahrir Square, Cairo</field>
+            <field name="pickup_phone">+201234567890</field>
+            <field name="pickup_contact">Ahmed Shop Manager</field>
+            <field name="pickup_lat">30.0444</field>
+            <field name="pickup_lng">31.2357</field>
+            <field name="delivery_address">456 Heliopolis, Cairo</field>
+            <field name="delivery_phone">+201111111111</field>
+            <field name="delivery_contact">Sara Hassan</field>
+            <field name="delivery_lat">30.0876</field>
+            <field name="delivery_lng">31.3251</field>
+            <field name="service_fee">50.00</field>
+            <field name="cod_amount">500.00</field>
+            <field name="state">confirmed</field>
+            <field name="scheduled_pickup_date" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+        </record>
+
+        <record id="demo_service_request_2" model="routy.service_request">
+            <field name="customer_id" ref="demo_customer_2"/>
+            <field name="service_type">local</field>
+            <field name="pickup_address">456 Corniche Road, Alexandria</field>
+            <field name="pickup_phone">+201234567891</field>
+            <field name="pickup_contact">Fashion Manager</field>
+            <field name="pickup_lat">31.2001</field>
+            <field name="pickup_lng">29.9187</field>
+            <field name="delivery_address">789 Smouha, Alexandria</field>
+            <field name="delivery_phone">+202222222222</field>
+            <field name="delivery_contact">Mona Ali</field>
+            <field name="delivery_lat">31.2156</field>
+            <field name="delivery_lng">29.9467</field>
+            <field name="service_fee">30.00</field>
+            <field name="cod_amount">300.00</field>
+            <field name="state">draft</field>
+        </record>
+
+        <record id="demo_service_request_3" model="routy.service_request">
+            <field name="customer_id" ref="demo_customer_3"/>
+            <field name="service_type">scheduled</field>
+            <field name="pickup_address">789 Pyramids Street, Giza</field>
+            <field name="pickup_phone">+201234567892</field>
+            <field name="pickup_contact">Book Store Manager</field>
+            <field name="pickup_lat">30.0131</field>
+            <field name="pickup_lng">31.2089</field>
+            <field name="delivery_address">100 Mohandessin, Giza</field>
+            <field name="delivery_phone">+203333333333</field>
+            <field name="delivery_contact">Hassan Ahmed</field>
+            <field name="delivery_lat">30.0626</field>
+            <field name="delivery_lng">31.2003</field>
+            <field name="service_fee">40.00</field>
+            <field name="cod_amount">0.00</field>
+            <field name="state">confirmed</field>
+            <field name="scheduled_pickup_date" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 14:00:00')"/>
+        </record>
+
+        <!-- Demo Parcels -->
+        <record id="demo_parcel_1" model="routy.parcel">
+            <field name="service_request_id" ref="demo_service_request_1"/>
+            <field name="description">Laptop Dell XPS 15</field>
+            <field name="weight">2.5</field>
+            <field name="length">40</field>
+            <field name="width">30</field>
+            <field name="height">10</field>
+            <field name="declared_value">500.00</field>
+            <field name="state">pending</field>
+        </record>
+
+        <record id="demo_parcel_2" model="routy.parcel">
+            <field name="service_request_id" ref="demo_service_request_1"/>
+            <field name="description">Wireless Mouse + Keyboard</field>
+            <field name="weight">0.8</field>
+            <field name="length">30</field>
+            <field name="width">20</field>
+            <field name="height">5</field>
+            <field name="declared_value">100.00</field>
+            <field name="state">pending</field>
+        </record>
+
+        <record id="demo_parcel_3" model="routy.parcel">
+            <field name="service_request_id" ref="demo_service_request_2"/>
+            <field name="description">Women's Fashion Dress - Size M</field>
+            <field name="weight">0.5</field>
+            <field name="length">35</field>
+            <field name="width">25</field>
+            <field name="height">8</field>
+            <field name="declared_value">300.00</field>
+            <field name="state">pending</field>
+        </record>
+
+        <record id="demo_parcel_4" model="routy.parcel">
+            <field name="service_request_id" ref="demo_service_request_3"/>
+            <field name="description">Books Collection (5 books)</field>
+            <field name="weight">3.0</field>
+            <field name="length">25</field>
+            <field name="width">20</field>
+            <field name="height">15</field>
+            <field name="declared_value">200.00</field>
+            <field name="state">pending</field>
+        </record>
+
+        <!-- Demo Jobs -->
+        <record id="demo_job_1" model="routy.job">
+            <field name="service_request_id" ref="demo_service_request_1"/>
+            <field name="job_type">pickup</field>
+            <field name="driver_id" ref="demo_driver_1"/>
+            <field name="location_address">123 Tahrir Square, Cairo</field>
+            <field name="location_lat">30.0444</field>
+            <field name="location_lng">31.2357</field>
+            <field name="contact_phone">+201234567890</field>
+            <field name="contact_name">Ahmed Shop Manager</field>
+            <field name="state">assigned</field>
+            <field name="scheduled_time" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 10:00:00')"/>
+            <field name="parcel_ids" eval="[(6, 0, [ref('demo_parcel_1'), ref('demo_parcel_2')])]"/>
+        </record>
+
+        <record id="demo_job_2" model="routy.job">
+            <field name="service_request_id" ref="demo_service_request_1"/>
+            <field name="job_type">delivery</field>
+            <field name="driver_id" ref="demo_driver_1"/>
+            <field name="location_address">456 Heliopolis, Cairo</field>
+            <field name="location_lat">30.0876</field>
+            <field name="location_lng">31.3251</field>
+            <field name="contact_phone">+201111111111</field>
+            <field name="contact_name">Sara Hassan</field>
+            <field name="state">assigned</field>
+            <field name="scheduled_time" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 14:00:00')"/>
+            <field name="parcel_ids" eval="[(6, 0, [ref('demo_parcel_1'), ref('demo_parcel_2')])]"/>
+        </record>
+
+        <record id="demo_job_3" model="routy.job">
+            <field name="service_request_id" ref="demo_service_request_3"/>
+            <field name="job_type">pickup</field>
+            <field name="driver_id" ref="demo_driver_2"/>
+            <field name="location_address">789 Pyramids Street, Giza</field>
+            <field name="location_lat">30.0131</field>
+            <field name="location_lng">31.2089</field>
+            <field name="contact_phone">+201234567892</field>
+            <field name="contact_name">Book Store Manager</field>
+            <field name="state">assigned</field>
+            <field name="scheduled_time" eval="(datetime.now() + timedelta(days=2)).strftime('%Y-%m-%d 14:00:00')"/>
+            <field name="parcel_ids" eval="[(6, 0, [ref('demo_parcel_4')])]"/>
+        </record>
+
+        <!-- Demo Payment Records -->
+        <record id="demo_payment_1" model="routy.payment_record">
+            <field name="driver_id" ref="demo_driver_1"/>
+            <field name="payment_type">cod_collection</field>
+            <field name="amount">500.00</field>
+            <field name="payment_method">cash</field>
+            <field name="payment_date" eval="datetime.now().strftime('%Y-%m-%d')"/>
+            <field name="state">confirmed</field>
+            <field name="notes">COD from Electronics Shop delivery</field>
+        </record>
+
+        <!-- Demo Incidents -->
+        <record id="demo_incident_1" model="routy.incident">
+            <field name="title">Delivery Delay - Traffic Congestion</field>
+            <field name="incident_type">delay</field>
+            <field name="priority">medium</field>
+            <field name="description">Heavy traffic on Tahrir Square caused 30 minutes delay</field>
+            <field name="state">new</field>
+            <field name="reported_by_id" ref="demo_driver_1"/>
+        </record>
+
+        <!-- Demo Route Plan -->
+        <record id="demo_route_plan_1" model="routy.route_plan">
+            <field name="driver_id" ref="demo_driver_1"/>
+            <field name="date" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')"/>
+            <field name="state">confirmed</field>
+            <field name="job_ids" eval="[(6, 0, [ref('demo_job_1'), ref('demo_job_2')])]"/>
+            <field name="notes">Cairo area deliveries - Electronics and Fashion</field>
+        </record>
+
+        <!-- Demo Linehaul -->
+        <record id="demo_linehaul_1" model="routy.linehaul">
+            <field name="departure_hub_id" ref="demo_hub_cairo_main"/>
+            <field name="arrival_hub_id" ref="demo_hub_alex"/>
+            <field name="driver_id" ref="demo_driver_3"/>
+            <field name="scheduled_departure" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 06:00:00')"/>
+            <field name="scheduled_arrival" eval="(datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d 09:00:00')"/>
+            <field name="state">scheduled</field>
+            <field name="distance">220.0</field>
+            <field name="estimated_cost">500.00</field>
+        </record>
+
+    </data>
+</odoo>

@@ -36,6 +36,8 @@
 
         # Data
         'data/sequences.xml',
+        'data/email_templates.xml',
+        'data/cron_jobs.xml',
 
         # Wizards
         'wizard/assign_driver_wizard_views.xml',
@@ -56,10 +58,24 @@
         'views/partner_contract_views.xml',
         'views/incident_views.xml',
 
+        # Dashboard
+        'views/dashboard_views.xml',
+
+        # Reports
+        'reports/parcel_delivery_note.xml',
+
         # Menus
         'views/menus.xml',
     ],
-    'demo': [],
+    'demo': [
+        'data/demo_data.xml',
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'routy/static/src/js/dashboard.js',
+            'routy/static/src/xml/dashboard.xml',
+        ],
+    },
     'test': True,
     'installable': True,
     'application': True,

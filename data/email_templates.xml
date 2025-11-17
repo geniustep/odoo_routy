@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Email Template: Service Request Confirmed -->
+        <record id="email_template_service_request_confirmed" model="mail.template">
+            <field name="name">Routy: Service Request Confirmed</field>
+            <field name="model_id" ref="model_routy_service_request"/>
+            <field name="subject">Your Delivery Request ${object.name} is Confirmed</field>
+            <field name="email_from">${(object.company_id.email or '')|safe}</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td style="background-color: #4CAF50; padding: 30px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Request Confirmed!</h1>
+                        </td>
+                    </tr>
+
+                    <!-- Content -->
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">Dear ${object.customer_id.name},</p>
+
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">
+                                Your delivery request <strong>${object.name}</strong> has been confirmed successfully!
+                            </p>
+
+                            <div style="background-color: #f9f9f9; border-left: 4px solid #4CAF50; padding: 20px; margin: 20px 0;">
+                                <h3 style="color: #4CAF50; margin: 0 0 15px 0;">Delivery Details</h3>
+                                <table width="100%" cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <td width="40%" style="color: #666; font-size: 14px;"><strong>Request Number:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${object.name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Service Type:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${dict(object._fields['service_type'].selection).get(object.service_type)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Number of Parcels:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${object.parcel_count}</td>
+                                    </tr>
+                                    % if object.scheduled_pickup_date:
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Scheduled Pickup:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${format_datetime(object.scheduled_pickup_date, dt_format='medium')}</td>
+                                    </tr>
+                                    % endif
+                                </table>
+                            </div>
+
+                            <h3 style="color: #333; margin: 30px 0 15px 0;">Pickup Address</h3>
+                            <p style="color: #666; font-size: 14px; margin: 0; line-height: 1.6;">${object.pickup_address}</p>
+
+                            <h3 style="color: #333; margin: 20px 0 15px 0;">Delivery Address</h3>
+                            <p style="color: #666; font-size: 14px; margin: 0; line-height: 1.6;">${object.delivery_address}</p>
+
+                            % if object.notes:
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 0; color: #856404; font-size: 14px;">
+                                    <strong>Note:</strong> ${object.notes}
+                                </p>
+                            </div>
+                            % endif
+
+                            <p style="font-size: 16px; color: #333; margin: 30px 0 20px 0;">
+                                We will notify you when a driver is assigned to your delivery.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666; font-size: 12px; margin: 0;">
+                                Thank you for choosing our delivery service!
+                            </p>
+                            <p style="color: #999; font-size: 11px; margin: 10px 0 0 0;">
+                                This is an automated message, please do not reply.
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+            </field>
+        </record>
+
+        <!-- Email Template: Driver Assigned -->
+        <record id="email_template_driver_assigned" model="mail.template">
+            <field name="name">Routy: Driver Assigned</field>
+            <field name="model_id" ref="model_routy_service_request"/>
+            <field name="subject">Driver Assigned to Your Delivery ${object.name}</field>
+            <field name="email_from">${(object.company_id.email or '')|safe}</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <tr>
+                        <td style="background-color: #2196F3; padding: 30px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Driver Assigned!</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">Dear ${object.customer_id.name},</p>
+
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">
+                                Great news! A driver has been assigned to your delivery request <strong>${object.name}</strong>.
+                            </p>
+
+                            <div style="background-color: #e3f2fd; border-left: 4px solid #2196F3; padding: 20px; margin: 20px 0;">
+                                <h3 style="color: #2196F3; margin: 0 0 15px 0;">Driver Information</h3>
+                                % if object.assigned_driver_id:
+                                <p style="margin: 0; color: #333; font-size: 16px;">
+                                    <strong>${object.assigned_driver_id.name}</strong>
+                                </p>
+                                % if object.assigned_driver_id.phone:
+                                <p style="margin: 10px 0 0 0; color: #666; font-size: 14px;">
+                                    📞 ${object.assigned_driver_id.phone}
+                                </p>
+                                % endif
+                                % endif
+                            </div>
+
+                            % if object.scheduled_pickup_date:
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 0; color: #856404;">
+                                    <strong>Scheduled Pickup:</strong> ${format_datetime(object.scheduled_pickup_date, dt_format='medium')}
+                                </p>
+                            </div>
+                            % endif
+
+                            <p style="font-size: 16px; color: #333; margin: 30px 0 20px 0;">
+                                The driver will contact you shortly to coordinate the pickup.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666; font-size: 12px; margin: 0;">
+                                Thank you for choosing our delivery service!
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+            </field>
+        </record>
+
+        <!-- Email Template: Parcel Delivered -->
+        <record id="email_template_parcel_delivered" model="mail.template">
+            <field name="name">Routy: Parcel Delivered</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="subject">Your Parcel ${object.name} Has Been Delivered</field>
+            <field name="email_from">${(object.company_id.email or '')|safe}</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <tr>
+                        <td style="background-color: #4CAF50; padding: 30px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">✓ Delivered Successfully!</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">Dear ${object.customer_id.name},</p>
+
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">
+                                Your parcel <strong>${object.name}</strong> has been delivered successfully!
+                            </p>
+
+                            <div style="background-color: #f1f8f4; border-left: 4px solid #4CAF50; padding: 20px; margin: 20px 0;">
+                                <h3 style="color: #4CAF50; margin: 0 0 15px 0;">Delivery Details</h3>
+                                <table width="100%" cellpadding="5" cellspacing="0">
+                                    <tr>
+                                        <td width="40%" style="color: #666; font-size: 14px;"><strong>Tracking Number:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${object.name}</td>
+                                    </tr>
+                                    % if object.delivered_at:
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Delivered At:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${format_datetime(object.delivered_at, dt_format='medium')}</td>
+                                    </tr>
+                                    % endif
+                                    % if object.recipient_name:
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Received By:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${object.recipient_name}</td>
+                                    </tr>
+                                    % endif
+                                    % if object.assigned_driver_id:
+                                    <tr>
+                                        <td style="color: #666; font-size: 14px;"><strong>Driver:</strong></td>
+                                        <td style="color: #333; font-size: 14px;">${object.assigned_driver_id.name}</td>
+                                    </tr>
+                                    % endif
+                                </table>
+                            </div>
+
+                            % if object.pod_notes:
+                            <div style="background-color: #e8f5e9; padding: 15px; margin: 20px 0; border-radius: 4px;">
+                                <p style="margin: 0; color: #2e7d32; font-size: 14px;">
+                                    <strong>Delivery Notes:</strong> ${object.pod_notes}
+                                </p>
+                            </div>
+                            % endif
+
+                            <p style="font-size: 16px; color: #333; margin: 30px 0 20px 0;">
+                                Thank you for using our service! We hope to serve you again soon.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666; font-size: 12px; margin: 0;">
+                                If you have any questions or feedback, please don't hesitate to contact us.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+            </field>
+        </record>
+
+        <!-- Email Template: Delivery Failed -->
+        <record id="email_template_delivery_failed" model="mail.template">
+            <field name="name">Routy: Delivery Failed</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="subject">Delivery Attempt Failed for ${object.name}</field>
+            <field name="email_from">${(object.company_id.email or '')|safe}</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <tr>
+                        <td style="background-color: #f44336; padding: 30px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">Delivery Attempt Failed</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">Dear ${object.customer_id.name},</p>
+
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">
+                                We regret to inform you that the delivery attempt for parcel <strong>${object.name}</strong> was unsuccessful.
+                            </p>
+
+                            <div style="background-color: #ffebee; border-left: 4px solid #f44336; padding: 20px; margin: 20px 0;">
+                                <h3 style="color: #f44336; margin: 0 0 15px 0;">What Happened?</h3>
+                                % if object.current_job_id and object.current_job_id.failure_reason:
+                                <p style="margin: 0; color: #333; font-size: 14px;">
+                                    ${object.current_job_id.failure_reason}
+                                </p>
+                                % else:
+                                <p style="margin: 0; color: #333; font-size: 14px;">
+                                    Our driver was unable to complete the delivery.
+                                </p>
+                                % endif
+                            </div>
+
+                            <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0;">
+                                <p style="margin: 0; color: #856404; font-size: 14px;">
+                                    <strong>Next Steps:</strong> We will attempt delivery again soon. Please ensure someone is available at the delivery address.
+                                </p>
+                            </div>
+
+                            <p style="font-size: 16px; color: #333; margin: 30px 0 20px 0;">
+                                If you need to reschedule or update the delivery address, please contact our customer service.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666; font-size: 12px; margin: 0;">
+                                We apologize for any inconvenience caused.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+            </field>
+        </record>
+
+        <!-- Email Template: Out for Delivery -->
+        <record id="email_template_out_for_delivery" model="mail.template">
+            <field name="name">Routy: Out for Delivery</field>
+            <field name="model_id" ref="model_routy_parcel"/>
+            <field name="subject">Your Parcel ${object.name} is Out for Delivery</field>
+            <field name="email_from">${(object.company_id.email or '')|safe}</field>
+            <field name="email_to">${object.customer_id.email}</field>
+            <field name="body_html" type="html">
+<div style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f4f4f4; padding: 20px;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <tr>
+                        <td style="background-color: #FF9800; padding: 30px; text-align: center;">
+                            <h1 style="color: #ffffff; margin: 0; font-size: 28px;">🚚 Out for Delivery</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 40px 30px;">
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">Dear ${object.customer_id.name},</p>
+
+                            <p style="font-size: 16px; color: #333; margin: 0 0 20px 0;">
+                                Great news! Your parcel <strong>${object.name}</strong> is now out for delivery and will arrive soon!
+                            </p>
+
+                            <div style="background-color: #fff3e0; border-left: 4px solid #FF9800; padding: 20px; margin: 20px 0;">
+                                <h3 style="color: #FF9800; margin: 0 0 15px 0;">Delivery Information</h3>
+                                % if object.assigned_driver_id:
+                                <p style="margin: 0 0 10px 0; color: #333; font-size: 14px;">
+                                    <strong>Driver:</strong> ${object.assigned_driver_id.name}
+                                </p>
+                                % endif
+                                <p style="margin: 0; color: #666; font-size: 14px;">
+                                    Please ensure someone is available at the delivery address.
+                                </p>
+                            </div>
+
+                            <div style="text-align: center; margin: 30px 0;">
+                                <div style="display: inline-block; background-color: #FF9800; color: white; padding: 12px 30px; border-radius: 4px; font-size: 16px; font-weight: bold;">
+                                    Estimated Delivery: Today
+                                </div>
+                            </div>
+
+                            <p style="font-size: 16px; color: #333; margin: 30px 0 20px 0;">
+                                Track your parcel: <strong>${object.name}</strong>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #f9f9f9; padding: 20px 30px; text-align: center; border-top: 1px solid #e0e0e0;">
+                            <p style="color: #666; font-size: 12px; margin: 0;">
+                                Thank you for your patience!
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+            </field>
+        </record>
+
+    </data>
+</odoo>
